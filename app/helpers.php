@@ -16,6 +16,28 @@ if (! function_exists('site_url')) {
     }
 }
 
+if (! function_exists('feature')) {
+    /** config/kral.php içindeki görsel geliştirme anahtarlarını okur. */
+    function feature(string $name): bool
+    {
+        return (bool) config('kral.features.'.$name, false);
+    }
+}
+
+if (! function_exists('feature_body_classes')) {
+    /** Açık olan özellikler için <body> sınıfları (ör. "fx-slider-text fx-cursor"). */
+    function feature_body_classes(): string
+    {
+        $map = [
+            'slider_text_animation' => 'fx-slider-text',
+            'cursor_follower' => 'fx-cursor',
+            'scroll_header' => 'fx-scroll-header',
+        ];
+
+        return implode(' ', array_keys(array_filter(array_flip($map), fn ($feature) => feature($feature))));
+    }
+}
+
 if (! function_exists('setting')) {
     function setting(string $key, mixed $default = null): mixed
     {

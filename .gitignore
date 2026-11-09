@@ -31,3 +31,7 @@ Thumbs.db
 
 # Lokal yedekler (veritabani, yuklemeler, .env kopyasi) - Git disi
 /backups
+
+# Gorsel regresyon - gecici cikti
+/docs/current-screenshots
+/docs/diff-screenshots

@@ -55,7 +55,7 @@
     @endforeach
     @stack('head')
 </head>
-<body class="{{ $bodyClass }}">
+<body class="{{ trim($bodyClass.' '.feature_body_classes()) }}">
     <a class="skip-link" href="#icerik">İçeriğe geç</a>
 
     @include('partials.header')
