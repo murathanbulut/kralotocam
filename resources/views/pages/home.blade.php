@@ -135,10 +135,15 @@
             <x-section-heading subtitle="Hizmetlerimiz" title="Oto Cam Hizmetlerimiz" center deco>
                 Araç camı onarımından ADAS kalibrasyonuna kadar ihtiyacınız olan hizmetleri tek noktada sunuyoruz.
             </x-section-heading>
-            <div class="row g-4 justify-content-center">
+            {{-- KRAL_FX_SERVICE_IMAGES: görselli kartlar; kapalıysa mevcut ikonlu kartlar --}}
+            <div @class(['row g-4 justify-content-center', 'kral-svc-grid' => feature('service_image_cards')])>
                 @foreach ($services as $service)
                     <div class="col-md-6 col-lg-4 col-xl-3 d-flex">
-                        <x-service-card :service="$service" class="wow fadeInUp w-100" style="--delay: {{ ($loop->index % 4) * 100 }}ms" />
+                        @if (feature('service_image_cards'))
+                            <x-service-image-card :service="$service" class="wow fadeInUp" style="--delay: {{ ($loop->index % 4) * 100 }}ms" />
+                        @else
+                            <x-service-card :service="$service" class="wow fadeInUp w-100" style="--delay: {{ ($loop->index % 4) * 100 }}ms" />
+                        @endif
                     </div>
                 @endforeach
             </div>

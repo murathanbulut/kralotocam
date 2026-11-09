@@ -1,0 +1,166 @@
+/*
+ * D. Görselli hizmet kartları (KRAL_FX_SERVICE_IMAGES)
+ * Yalnızca .kral-svc-grid içinde geçerlidir; bayrak kapalıyken bu işaretleme hiç üretilmez.
+ * Görsel dil: referans temanın Portföyümüz kartı + "effect-gradient" (var(--gradient-one-180)).
+ */
+.kral-svc-grid .kral-svc-card {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--kral-radius);
+    background: var(--kral-card-bg);
+    border: 1px solid var(--kral-border);
+}
+.kral-svc-grid .kral-svc-card .wptb-item--inner { border-radius: var(--kral-radius); }
+
+/* Görsel alanı: tüm kartlar aynı oranda -> eşit boyut */
+.kral-svc-grid .kral-svc-card .wptb-item--image {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: var(--kral-radius);
+}
+.kral-svc-grid .kral-svc-card .wptb-item--image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .8s ease;
+}
+.kral-svc-grid .kral-svc-card:hover .wptb-item--image > img,
+.kral-svc-grid .kral-svc-card:focus-within .wptb-item--image > img { transform: scale(1.08); }
+
+/* Görseli olmayan hizmetler: başka hizmetin fotoğrafı yerine marka renklerinde ikonlu alan */
+.kral-svc-card__placeholder {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding-bottom: 30%;
+    background:
+        radial-gradient(circle at 50% 35%, rgba(var(--color-one-rgb), .28), transparent 60%),
+        linear-gradient(160deg, #222 0%, #121212 100%);
+}
+.kral-svc-card__placeholder img { width: 84px; height: 84px; opacity: .9; }
+.kral-svc-card__placeholder .kral-service-glyph { font-size: 72px; }
+
+/* Başlık alanı: her zaman görünür, alttan koyu gradyan */
+.kral-svc-grid .kral-svc-card .wptb-item--holder {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: auto;
+    margin: 0;
+    padding: 70px 24px 22px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .78) 55%, rgba(0, 0, 0, .9) 100%);
+    transition: padding .45s ease;
+}
+/* Hover / odak: referans "effect-gradient" kırmızı gradyanı alttan yükselir */
+.kral-svc-grid .kral-svc-card .wptb-item--holder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-one-180);
+    opacity: 0;
+    transition: opacity .45s ease;
+}
+.kral-svc-grid .kral-svc-card:hover .wptb-item--holder::before,
+.kral-svc-grid .kral-svc-card:focus-within .wptb-item--holder::before { opacity: 1; }
+.kral-svc-grid .kral-svc-card .wptb-item--meta { position: relative; }
+
+.kral-svc-card__title {
+    margin: 0;
+    font-size: 20px;
+    line-height: 1.3;
+    font-weight: var(--fw-medium);
+    min-height: calc(2 * 1.3em); /* tek/iki satırlık başlıklarda kartlar aynı hizada */
+    display: flex;
+    align-items: flex-end;
+}
+.kral-svc-card__link,
+.kral-svc-card__link:hover { color: #fff; }
+/* Kartın tamamı tıklanabilir */
+.kral-svc-card__link::after {
+    content: '';
+    position: absolute;
+    inset: -1000px;
+}
+.kral-svc-grid .kral-svc-card .wptb-item--inner { position: relative; }
+.kral-svc-card__link:focus-visible { outline: none; }
+.kral-svc-grid .kral-svc-card:has(.kral-svc-card__link:focus-visible) {
+    outline: 2px solid var(--kral-gold);
+    outline-offset: 3px;
+}
+
+/* Açıklama + "Detaylı Bilgi": hover/odakta açılır */
+.kral-svc-card__more {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows .45s ease, opacity .45s ease, margin .45s ease;
+}
+.kral-svc-card__more > * { min-height: 0; overflow: hidden; }
+.kral-svc-grid .kral-svc-card:hover .kral-svc-card__more,
+.kral-svc-grid .kral-svc-card:focus-within .kral-svc-card__more {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 10px;
+}
+.kral-svc-card__more > div,
+.kral-svc-card__more p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, .9);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+.kral-svc-card__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+}
+
+/* Sağ üstteki yuvarlak bağlantı ikonu (referans .effect-gradient .wptb-item--link) */
+.kral-svc-grid .kral-svc-card .wptb-item--link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+    color: var(--color-one);
+    background-color: var(--color-white-fixed);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: var(--transition-base);
+    pointer-events: none;
+}
+.kral-svc-grid .kral-svc-card:hover .wptb-item--link,
+.kral-svc-grid .kral-svc-card:focus-within .wptb-item--link { opacity: 1; transform: none; }
+
+/* Dokunmatik cihazlarda hover yok: kısa açıklama gösterilmez, başlık + tüm kart bağlantısı yeterli */
+@media (hover: none) {
+    .kral-svc-grid .kral-svc-card .wptb-item--link { opacity: 1; transform: none; width: 40px; height: 40px; font-size: 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .kral-svc-grid .kral-svc-card .wptb-item--image > img,
+    .kral-svc-card__more,
+    .kral-svc-grid .kral-svc-card .wptb-item--holder::before { transition: none; }
+}
+
+/* Telefonda tam genişlikte kare kart çok uzun; daha az kaydırma için 4:3 */
+@media (max-width: 767.98px) {
+    .kral-svc-grid .kral-svc-card .wptb-item--image { aspect-ratio: 4 / 3; }
+}
