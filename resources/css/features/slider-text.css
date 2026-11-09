@@ -1,0 +1,28 @@
+/*
+ * A. Slider yazı animasyonları  (KRAL_FX_SLIDER_TEXT)
+ * Yalnızca JS "js-slider-fx" sınıfını eklediğinde çalışır; JS çalışmazsa tema davranışı aynen kalır.
+ * Metinlerin son konumu temadakiyle aynıdır (transform: none); yalnızca beliriş sırası/zamanlaması değişir.
+ * Sıra: küçük başlık > ana başlık > açıklama > butonlar.
+ */
+body.js-slider-fx .wptb-slider.style2.kral-hero .swiper-slide .wptb-heading .wptb-item--subtitle,
+body.js-slider-fx .wptb-slider.style2.kral-hero .swiper-slide .wptb-heading .wptb-item--title,
+body.js-slider-fx .wptb-slider.style2.kral-hero .swiper-slide .wptb-heading .wptb-item--description,
+body.js-slider-fx .wptb-slider.style2.kral-hero .swiper-slide .wptb-heading .wptb-item--button {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: none;
+}
+
+body.js-slider-fx .wptb-slider.style2.kral-hero .swiper-slide.kral-text-in .wptb-heading .wptb-item--subtitle,
+body.js-slider-fx .wptb-slider.style2.kral-hero .swiper-slide.kral-text-in .wptb-heading .wptb-item--title,
+body.js-slider-fx .wptb-slider.style2.kral-hero .swiper-slide.kral-text-in .wptb-heading .wptb-item--description,
+body.js-slider-fx .wptb-slider.style2.kral-hero .swiper-slide.kral-text-in .wptb-heading .wptb-item--button {
+    opacity: 1;
+    transform: none;
+    transition: opacity .7s ease, transform .8s cubic-bezier(.2, .7, .2, 1);
+}
+
+body.js-slider-fx .wptb-slider.style2.kral-hero .swiper-slide.kral-text-in .wptb-heading .wptb-item--subtitle { transition-delay: .15s; }
+body.js-slider-fx .wptb-slider.style2.kral-hero .swiper-slide.kral-text-in .wptb-heading .wptb-item--title { transition-delay: .35s; }
+body.js-slider-fx .wptb-slider.style2.kral-hero .swiper-slide.kral-text-in .wptb-heading .wptb-item--description { transition-delay: .55s; }
+body.js-slider-fx .wptb-slider.style2.kral-hero .swiper-slide.kral-text-in .wptb-heading .wptb-item--button { transition-delay: .75s; }
