@@ -1,0 +1,310 @@
+/*
+ * Referans temanin acik tema dosyasi (referanslar/.../light-css.txt) - otomatik donusturuldu.
+ * ".theme-style--light" seciciler yalnizca <html data-theme="light"> durumunda gecerli olacak sekilde kapsandi.
+ * Koyu temayi etkilemez. Kaynak dosya degistirilmedi.
+ */
+:root[data-theme="light"] body {
+    --fw-light:           400;
+
+    /* Primary Color */
+    --color-one:                        #B90808;
+    --color-one-rgb:                    185, 8, 8;
+    
+
+    /* Text Color */
+    --color-two:                      #585858;
+    --color-two-rgb:                   88, 88, 88;
+    
+    /* Body BG */
+    --color-dark-one:                  #FFFFFF;
+    --color-dark-one-rgb:               255, 255, 255;
+
+    /* Hero BG */
+    --color-dark-two:                  #FAFAFA;
+    --color-dark-two-rgb:               250, 250, 250;
+    
+    --color-dark-three:                #F2F2F2; 
+    --color-dark-three-rgb:             242, 242, 242;
+    
+    --color-dark-four:                 #F5F5F5;
+    --color-dark-four-rgb:              245, 245, 245;
+    
+    --color-dark-five:                 #DDDDDD;
+    --color-dark-five-rgb:              221, 221, 221;
+
+    --color-dark-six:                  #272727;
+    --color-dark-six-rgb:               39, 39, 39;
+
+    --color-dark-seven:                #DDDDDD;
+    --color-dark-seven-rgb:             221, 221, 221;
+
+    --color-dark-eight:                #343434;
+    --color-dark-eight-rgb:             52, 52, 52;
+
+    --color-dark-nine:                #DDDDDD;
+    --color-dark-nine-rgb:             221, 221, 221;
+
+    --color-dark-ten:                #444444;
+    --color-dark-ten-rgb:             68, 68, 68;
+
+    --color-dark-eleven:                #495060;
+    --color-dark-eleven-rgb:             73, 80, 96;
+
+    --color-dark-twelve:                #FAFAFA;
+    --color-dark-twelve-rgb:             250, 250, 250;
+
+    --color-dark-thirteen:                #F4F4F4;
+    --color-dark-thirteen-rgb:             244, 244, 244;
+
+    --color-dark-fourteen:                #FAFAFA;
+    --color-dark-fourteen-rgb:             250, 250, 250;
+
+    --color-dark-fifteen:                #F5F5F5;
+    --color-dark-fifteen-rgb:             245, 245, 245;
+    
+    --color-white:                     #000000;
+    --color-white-rgb:                  0, 0, 0;
+
+    --color-black:                     #FFFFFF;
+    --color-black-rgb:                  255, 255, 255;
+
+    --color-muted:                     #4E4E4E;
+    --color-muted-rgb:                  78, 78, 78;
+
+
+    --link-color:                      #000000;
+    --link-color-hover:                #B90808;
+
+    --gradient-two: linear-gradient(90deg, var(--color-dark-thirteen) 0%, var(--color-dark-one) 100%);
+    --gradient-two-alt: linear-gradient(90deg, var(--color-dark-one) 0%, var(--color-dark-thirteen) 100%);
+    --gradient-two-180: linear-gradient(180deg, var(--color-dark-thirteen) 0%, var(--color-dark-one) 100%);
+    --gradient-two-180-alt: linear-gradient(180deg, var(--color-dark-one) 0%, var(--color-dark-thirteen) 100%);
+}
+
+:root[data-theme="light"] body.theme-style--orange {
+    --color-one:                     #F85623;
+    --color-one-rgb:                    248, 86, 35;
+
+    --link-color:                      #000000;
+    --link-color-hover:                #F85623;
+}
+
+:root[data-theme="light"] body.theme-style--gradient {
+    --color-one:                       #57E2D0;
+    --color-one-rgb:                    87, 226, 208;
+
+    --link-color:                      #000000;
+    --link-color-hover:                #57E2D0;
+}
+
+:root[data-theme="light"] body.theme-style--olive {
+    --color-one:                       #A6A182;
+    --color-one-rgb:                     166, 161, 130;
+
+    --link-color:                      #000000;
+    --link-color-hover:                #A6A182;
+}
+
+:root[data-theme="light"] body.bg-black {
+    background-color: var(--color-black) !important;
+}
+
+:root[data-theme="light"] body .logo a.light_logo {
+    display: none;
+}
+:root[data-theme="light"] body .logo a.dark_logo {
+    display: inline-block;
+}
+:root[data-theme="light"] body .wptb-item--icon .light-icon {
+    display: none;
+}
+:root[data-theme="light"] body .wptb-item--icon .dark-icon {
+    display: block;
+}
+
+:root[data-theme="light"] body .both-version.wptb-item-layer img:first-child {
+    display: none;
+}
+:root[data-theme="light"] body .both-version.wptb-item-layer img + img {
+    display: block;
+}
+
+
+:root[data-theme="light"] body .mr_menu h6,
+:root[data-theme="light"] body .wptb-heading .wptb-item--subtitle,
+:root[data-theme="light"] body .aside_info_wrapper .wptb-icon-box1.style2 .wptb-item--icon,
+:root[data-theme="light"] body .wptb-icon-box1.style2 .wptb-item--description a:not(:hover) {
+    color: var(--color-two);
+}
+
+:root[data-theme="light"] body .wptb-slider.style1 .social-box.style-oval ul li a,
+:root[data-theme="light"] body .wptb-icon-box6 .wptb-item--title a,
+:root[data-theme="light"] body .wptb-blog-grid1 .wptb-item--inner .wptb-item--author a:not(:hover),
+:root[data-theme="light"] body .wptb-swiper-navigation.style2 .wptb-swiper-arrow {
+    color: var(--color-white);
+}
+
+:root[data-theme="light"] body input[type="submit"]:hover,
+:root[data-theme="light"] body .wptb-about-one .round-button .btn:not(:hover),
+:root[data-theme="light"] body .wptb-about-two .round-button .btn:not(:hover),
+:root[data-theme="light"] body .wptb-slider.style2 .wptb-left-pane .logo h6,
+:root[data-theme="light"] body .wptb-slider.style1 .social-box.style-oval ul li a:hover,
+:root[data-theme="light"] body .wptb-slider.style2 .wptb-swiper-navigation.style3 .wptb-swiper-arrow,
+:root[data-theme="light"] body .wptb-slider.style3 .wptb-swiper-navigation.style3 .wptb-swiper-arrow,
+:root[data-theme="light"] body .wptb-slider.style5 .wptb-swiper-navigation.style2 .wptb-swiper-arrow,
+:root[data-theme="light"] body .wptb-slider.style6 .wptb-heading .btn-two.white-opacity,
+:root[data-theme="light"] body .wptb-slider.style13 .wptb-swiper-navigation.style1 .wptb-swiper-arrow,
+:root[data-theme="light"] body .wptb-album-one .grid-item .wptb-item--meta h4 a:not(:hover),
+:root[data-theme="light"] body .wptb-album-one .grid-item .wptb-item--meta p,
+:root[data-theme="light"] body .wptb-packages1.active .wptb-item--inner .wptb-item--button .btn,
+:root[data-theme="light"] body .wptb-packages1:hover .wptb-item--inner .wptb-item--button .btn,
+:root[data-theme="light"] body .wptb-icon-box5.active .wptb-item--description,
+:root[data-theme="light"] body .wptb-icon-box5:hover .wptb-item--description,
+:root[data-theme="light"] body .footer .newsletter-form .form-control,
+:root[data-theme="light"] body .footer .newsletter-form button.btn ,
+:root[data-theme="light"] body .wptb-testimonial-one .wptb-swiper-navigation.style1 .wptb-swiper-arrow {
+    color: var(--color-black);
+}
+
+
+/* Background CSS */
+:root[data-theme="light"] body .wptb-packages1.active .wptb-item--inner .wptb-item--button .btn,
+:root[data-theme="light"] body .wptb-packages1:hover .wptb-item--inner .wptb-item--button .btn {
+    background-color: var(--color-one);
+}
+
+:root[data-theme="light"] body .wptb-slider.style2 .wptb-swiper-dots.style2 .swiper-pagination-bullet:before,
+:root[data-theme="light"] body .wptb-slider.style3 .wptb-swiper-dots.style2 .swiper-pagination-bullet:before,
+:root[data-theme="light"] body .wptb-contact-form.style2 .form-control {
+    background-color: var(--color-black);
+}
+:root[data-theme="light"] body .wptb-slider.style2 .wptb-swiper-dots.style2::before, 
+:root[data-theme="light"] body .wptb-slider.style3 .wptb-swiper-dots.style2::before, 
+:root[data-theme="light"] body .wptb-slider.style2 .wptb-swiper-dots.style2::after,
+:root[data-theme="light"] body .wptb-slider.style3 .wptb-swiper-dots.style2::after {
+    background-color: rgba(var(--color-black-rgb), 0.3);
+}
+:root[data-theme="light"] body .wptb-slider.style5 .btn-two.gray,
+:root[data-theme="light"] body .wptb-slider.style5 .btn-two.white-opacity,
+:root[data-theme="light"] body .wptb-slider.style6 .wptb-heading .btn-two.white-opacity,
+:root[data-theme="light"] body .wptb-slider.style14 .wptb-heading .btn-two.white-opacity {
+    background-color: rgba(var(--color-black-rgb), 0.10);
+}
+
+:root[data-theme="light"] body .wptb-slider .mr_menu_toggle,
+:root[data-theme="light"] body .wptb-slider .aside_open {
+    background-color: var(--color-dark-five);
+}
+:root[data-theme="light"] body .wptb-slider .mr_menu_toggle span,
+:root[data-theme="light"] body .wptb-slider .aside_open span {
+    background-color: #151515;
+}
+:root[data-theme="light"] body.theme-style--olive .wptb-icon-box7.active,
+:root[data-theme="light"] body.theme-style--olive .wptb-icon-box7:hover {
+    background-color: rgba(var(--color-black-rgb), 1);
+    box-shadow: 0px 50px 40px 15px rgba(var(--color-black-rgb), 0.06);
+}
+
+:root[data-theme="light"] body .wptb-slider.style1 .wptb-heading .wptb-item--title.text-outline {
+    -webkit-text-stroke-color: #DDDDDD;
+}
+
+
+:root[data-theme="light"] body .form-control {
+    background-color: rgba(var(--color-dark-five-rgb), 0.3);
+}
+
+:root[data-theme="light"] body .form-control:focus {
+    background-color: rgba(var(--color-dark-five-rgb), 0);
+}
+:root[data-theme="light"] body .footer .newsletter-form .form-control {
+    background-color: rgba(var(--color-dark-six-rgb), 0.30);
+}
+
+:root[data-theme="light"] body .wptb-about-two {
+    background-color: #FCFCFC;
+}
+
+:root[data-theme="light"] body .wptb-agency-experience {
+    background-image: none /* referansta yok */ !important;
+}
+
+/* Index-4 */
+:root[data-theme="light"] body.theme-style--gradient {
+    background-color: var(--color-black);
+    background-image: none /* referansta yok */;
+}
+:root[data-theme="light"] body.theme-style--gradient .wptb-heading-two .wptb-item--subtitle {
+    background-color: #DDF9F6;
+}
+:root[data-theme="light"] body .wptb-gallery-box::before {
+    background: linear-gradient(180deg,  rgb(255, 255, 255, 1) 0%, rgb(255, 255, 255, 0.8) 50%, rgb(255, 255, 255, 0) 100%);
+}
+:root[data-theme="light"] body .wptb-gallery-box::after {
+    background: linear-gradient(180deg,  rgb(255, 255, 255, 0) 0%, rgb(255, 255, 255, 0.8) 50%, rgb(255, 255, 255, 1) 100%);
+}
+:root[data-theme="light"] body .grid_lines .grid_line {
+    background-color: rgba(221, 221, 221, 0.6);
+}
+
+:root[data-theme="light"] body .wptb-contact-form .wptb-form--wrapper {
+    background: -webkit-linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+    background: -moz-linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+}
+:root[data-theme="light"] body .wptb-contact-form .wptb-form--wrapper::before {
+    background: -webkit-linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%);
+    background: -moz-linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%);
+    background: linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%);
+}
+
+:root[data-theme="light"] body .wptb-packages1 .wptb-item--inner::before {
+    background: -webkit-linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+    background: -moz-linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFFFFF 100%);
+}
+:root[data-theme="light"] body .wptb-packages1 .wptb-item--inner::after{
+    background: -webkit-linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%);
+    background: -moz-linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%);
+    background: linear-gradient(180deg, #FFFFFF 0%, #F2F2F2 100%);
+}
+
+
+/* Border CSS */
+:root[data-theme="light"] body .social-box.style-oval ul li a:hover
+:root[data-theme="light"] body .wptb-slider.style1 .social-box.style-oval ul li a:hover {
+    border-color: var(--color-one);
+}
+
+:root[data-theme="light"] body .wptb-slider.style2 .wptb-swiper-dots.style2 .swiper-pagination-bullet.swiper-pagination-bullet-active,
+:root[data-theme="light"] body .wptb-slider.style3 .wptb-swiper-dots.style2 .swiper-pagination-bullet.swiper-pagination-bullet-active,
+:root[data-theme="light"] body .wptb-slider.style5 .wptb-heading .btn.creative:not(:hover):before, :root[data-theme="light"] body .wptb-slider.style5 .wptb-heading .btn.creative:not(:hover)::after, 
+:root[data-theme="light"] body .wptb-slider.style5 .wptb-heading .btn.creative .btn-wrap:not(:hover)::before, :root[data-theme="light"] body .wptb-slider.style5 .wptb-heading .btn.creative .btn-wrap:not(:hover)::after,
+:root[data-theme="light"] body .wptb-slider.style6 .wptb-heading .btn.creative:not(:hover):before, :root[data-theme="light"] body .wptb-slider.style6 .wptb-heading .btn.creative:not(:hover)::after, 
+:root[data-theme="light"] body .wptb-slider.style6 .wptb-heading .btn.creative .btn-wrap:not(:hover)::before, :root[data-theme="light"] body .wptb-slider.style6 .wptb-heading .btn.creative .btn-wrap:not(:hover)::after,
+:root[data-theme="light"] body .wptb-slider.style14 .wptb-heading .btn.creative:not(:hover):before, :root[data-theme="light"] body .wptb-slider.style14 .wptb-heading .btn.creative:not(:hover)::after, 
+:root[data-theme="light"] body .wptb-slider.style14 .wptb-heading .btn.creative .btn-wrap:not(:hover)::before, :root[data-theme="light"] body .wptb-slider.style14 .wptb-heading .btn.creative .btn-wrap:not(:hover)::after  {
+    border-color: var(--color-black);
+}
+
+:root[data-theme="light"] body .aside_info_wrapper .wptb-icon-box1.style2 .wptb-item--icon {
+    border-color: var(--color-two);
+}
+
+:root[data-theme="light"] body .footer .newsletter-form .form-control {
+    border-color: var(--color-dark-seven-fixed);
+}
+
+:root[data-theme="light"] body .footer .newsletter-form button.btn {
+    border-color: var(--color-dark-seven-fixed);
+}
+
+:root[data-theme="light"] body .wptb-slider.style2 .social-box.style-oval ul li a {
+    border-color: var(--color-white-fixed);
+    color: var(--color-white-fixed);
+}
+
+:root[data-theme="light"] body .wptb-slider .btn.creative::before, :root[data-theme="light"] body .wptb-slider .btn.creative::after, 
+:root[data-theme="light"] body .wptb-slider .btn.creative .btn-wrap::before, :root[data-theme="light"] body .wptb-slider .btn.creative .btn-wrap::after {
+    border-color: var(--color-black);
+}

@@ -47,8 +47,16 @@
     <link rel="apple-touch-icon" href="{{ media_url(setting('favicon'), 'images/theme/favicon.png') }}">
     <meta name="theme-color" content="#151515">
 
+    @if (feature('light_theme'))
+        {{-- Açık tema yalnızca ziyaretçi seçtiyse uygulanır; sistem teması dikkate alınmaz. Varsayılan: koyu. --}}
+        <script>try { if (localStorage.getItem('kral-theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); } } catch (e) {}</script>
+    @endif
     @fonts
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(array_values(array_filter([
+        'resources/css/app.css',
+        feature('light_theme') ? 'resources/css/light-theme.css' : null,
+        'resources/js/app.js',
+    ])))
 
     @foreach ($seo->allSchema() as $schema)
         <script type="application/ld+json">{!! json_encode($schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG) !!}</script>

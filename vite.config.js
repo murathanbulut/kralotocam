@@ -7,7 +7,7 @@ import { bunny } from 'laravel-vite-plugin/fonts';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
+            input: ['resources/css/app.css', 'resources/css/light-theme.css', 'resources/js/app.js'],
             refresh: true,
             fonts: [
                 bunny('Sora', { weights: [300, 400, 500, 600, 700], subsets: ['latin', 'latin-ext'] }),

@@ -1,0 +1,147 @@
+/*
+ * E. İsteğe bağlı açık tema - Kral Oto Cam uyarlamaları (KRAL_FX_LIGHT_THEME)
+ * Tüm kurallar :root[data-theme="light"] ile kapsanır; koyu temaya etki etmez.
+ *
+ * "Koyu adalar": header (ve açılır menüsü), mobil menü, yan panel, hero slider, sayfa başlığı bandı,
+ * çağrı (CTA) kutusu ve footer açık temada da koyu kalır. Bu alanlar fotoğraf üzerinde durduğu ve
+ * beyaz logoyu taşıdığı için koyu değişkenler bu alanlarda yeniden tanımlanır.
+ */
+
+/* ---------- Koyu adalar: koyu tema değişkenlerini geri yükle ---------- */
+:root[data-theme="light"] :is(.header, .mr_menu, .aside_info_wrapper, .wptb-slider, .wptb-page-heading, .kral-cta, .kral-footer, .kral-svc-card__placeholder) {
+    --color-two: #DDDDDD;
+    --color-two-rgb: 221, 221, 221;
+    --color-dark-one: #151515;
+    --color-dark-one-rgb: 21, 21, 21;
+    --color-dark-two: #0F0F0F;
+    --color-dark-two-rgb: 15, 15, 15;
+    --color-dark-three: #121212;
+    --color-dark-three-rgb: 18, 18, 18;
+    --color-dark-four: #1E1E1E;
+    --color-dark-four-rgb: 30, 30, 30;
+    --color-dark-five: #2C2C2C;
+    --color-dark-five-rgb: 44, 44, 44;
+    --color-dark-seven: #3C3C3C;
+    --color-dark-seven-rgb: 60, 60, 60;
+    --color-dark-nine: #232323;
+    --color-dark-nine-rgb: 35, 35, 35;
+    --color-dark-twelve: #171719;
+    --color-dark-twelve-rgb: 23, 23, 25;
+    --color-dark-thirteen: #212121;
+    --color-dark-thirteen-rgb: 33, 33, 33;
+    --color-white: #FFFFFF;
+    --color-white-rgb: 255, 255, 255;
+    --color-black: #000000;
+    --color-black-rgb: 0, 0, 0;
+    --link-color: #FFFFFF;
+    --kral-card-bg: #1B1B1B;
+    --kral-border: rgba(255, 255, 255, 0.1);
+    color: #dbdada;
+}
+/* Logo beyaz yazılı olduğu için koyu header'da açık temada da gösterilir */
+:root[data-theme="light"] .header .logo a.light_logo,
+:root[data-theme="light"] .mr_menu .logo a,
+:root[data-theme="light"] .aside_info_wrapper .logo a.light_logo { display: inline-block; }
+:root[data-theme="light"] .mr_menu { background: #171719; }
+:root[data-theme="light"] .kral-cta__box .kral-cta__title { color: #fff; }
+
+/* ---------- Genel ---------- */
+:root[data-theme="light"] {
+    --kral-card-bg: #FFFFFF;
+    --kral-border: rgba(0, 0, 0, 0.1);
+    color-scheme: light;
+}
+:root[data-theme="light"] body { color: #4a4a4a; background-color: #FFFFFF; }
+:root[data-theme="light"] .kral-lead { color: #2b2b2b; }
+:root[data-theme="light"] .kral-heading-desc,
+:root[data-theme="light"] .kral-feature__text,
+:root[data-theme="light"] .kral-step p,
+:root[data-theme="light"] .kral-info-card ul,
+:root[data-theme="light"] .kral-blog-excerpt,
+:root[data-theme="light"] .kral-service-card .wptb-item--description,
+:root[data-theme="light"] .kral-form-box__intro,
+:root[data-theme="light"] .kral-side-contact p,
+:root[data-theme="light"] .kral-album__head p,
+:root[data-theme="light"] .kral-post-meta,
+:root[data-theme="light"] .kral-note,
+:root[data-theme="light"] .kral-empty { color: #5a5a5a; }
+
+/* Bölüm başlığı dekoru: açık zeminde koyu yazı + kırmızı bant */
+:root[data-theme="light"] .kral-deco span { color: #151515; }
+
+/* Kartlar */
+:root[data-theme="light"] .kral-feature,
+:root[data-theme="light"] .kral-step,
+:root[data-theme="light"] .kral-info-card,
+:root[data-theme="light"] .kral-service-card,
+:root[data-theme="light"] .kral-contact-card,
+:root[data-theme="light"] .kral-form-box,
+:root[data-theme="light"] .kral-sidebar .widget,
+:root[data-theme="light"] .kral-svc-grid .kral-svc-card { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); }
+:root[data-theme="light"] .kral-service-card .wptb-item--title a { color: #151515; }
+:root[data-theme="light"] .kral-service-card:hover { background: #fafafa; }
+:root[data-theme="light"] .kral-step__no { color: rgba(0, 0, 0, 0.06); }
+
+/* Kontrast için altın vurgular açık zeminde kırmızıya döner */
+:root[data-theme="light"] .kral-more-link,
+:root[data-theme="light"] .kral-side-contact__link,
+:root[data-theme="light"] .kral-contact-card a.kral-contact-card__sub,
+:root[data-theme="light"] .kral-map-note a,
+:root[data-theme="light"] .kral-post-meta a,
+:root[data-theme="light"] .wptb-blog-grid1 .wptb-item--date a,
+:root[data-theme="light"] .kral-content a:not(.btn) { color: var(--color-one); }
+:root[data-theme="light"] .kral-more-link:hover { color: #151515; }
+:root[data-theme="light"] .kral-side-nav a:hover,
+:root[data-theme="light"] .kral-side-nav li.active a { color: var(--color-one); }
+
+/* Galeri */
+:root[data-theme="light"] .kral-gallery-item { background: #fff; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); }
+:root[data-theme="light"] .kral-gallery-item .wptb-item--meta h3,
+:root[data-theme="light"] .kral-album__title a { color: #151515; }
+:root[data-theme="light"] .kral-gallery-item .wptb-item--meta p { color: #6a6a6a; }
+
+/* Filtre hapları, kenar menüsü, sayfalama */
+:root[data-theme="light"] .kral-filter a,
+:root[data-theme="light"] .kral-side-nav a,
+:root[data-theme="light"] .kral-pagination .page-link { color: #333; }
+:root[data-theme="light"] .kral-filter a:hover,
+:root[data-theme="light"] .kral-filter a.active { color: #fff; }
+:root[data-theme="light"] .kral-filter .badge { background: rgba(0, 0, 0, 0.08); color: inherit; }
+:root[data-theme="light"] .kral-filter a.active .badge,
+:root[data-theme="light"] .kral-filter a:hover .badge { background: rgba(255, 255, 255, 0.25); }
+:root[data-theme="light"] .kral-pagination .page-item.disabled .page-link { color: #bbb; }
+
+/* Kenar çubuğu iletişim kutusu */
+:root[data-theme="light"] .kral-side-contact__btn:not(.kral-side-contact__btn--wa) { background: #f2f2f2; color: #151515; }
+:root[data-theme="light"] .kral-side-contact__btn--wa { color: #fff; }
+
+/* İletişim sayfası */
+:root[data-theme="light"] .kral-contact-card a,
+:root[data-theme="light"] .kral-contact-card address { color: #151515; }
+:root[data-theme="light"] .kral-contact-card h2 { color: #777; }
+:root[data-theme="light"] .kral-form .form-label { color: #333; }
+:root[data-theme="light"] .kral-form .form-control,
+:root[data-theme="light"] .kral-form .form-select,
+:root[data-theme="light"] .kral-form .form-control:focus,
+:root[data-theme="light"] .kral-form .form-select:focus { background-color: #fff; border-color: #d0d0d0; color: #151515; }
+:root[data-theme="light"] .kral-form .form-control:focus,
+:root[data-theme="light"] .kral-form .form-select:focus { border-color: var(--color-one); }
+:root[data-theme="light"] .kral-form .form-control::placeholder { color: #999; }
+:root[data-theme="light"] .kral-form .form-select { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23555555' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); }
+:root[data-theme="light"] .kral-form .form-check-input { background-color: #fff; border-color: #aaa; }
+:root[data-theme="light"] .kral-form .form-check-input:checked { background-color: var(--color-one); border-color: var(--color-one); }
+:root[data-theme="light"] .kral-form .form-check-label { color: #444; }
+:root[data-theme="light"] .kral-form .invalid-feedback { color: #c0262d; }
+:root[data-theme="light"] .kral-alert.alert-success { color: #0f5132; background: #d1e7dd; border-color: #a3cfbb; }
+:root[data-theme="light"] .kral-alert.alert-danger { color: #842029; background: #f8d7da; border-color: #f1aeb5; }
+:root[data-theme="light"] .kral-alert.alert-warning { color: #664d03; background: #fff3cd; border-color: #ffe69c; }
+:root[data-theme="light"] .kral-map { background: #f2f2f2; }
+
+/* Sayfa başlığı bandının alt geçişi açık zemine erir */
+:root[data-theme="light"] .wptb-page-heading .wptb-item--inner::before {
+    background: linear-gradient(180deg, rgba(0, 0, 0, .75), rgba(0, 0, 0, .55) 60%, rgba(0, 0, 0, .35));
+}
+
+/* Blog kartları ve içerik */
+:root[data-theme="light"] .kral-content blockquote { background: #f5f5f5; }
+:root[data-theme="light"] .kral-image-placeholder { background: linear-gradient(135deg, #2a2a2a, #3a0808); }

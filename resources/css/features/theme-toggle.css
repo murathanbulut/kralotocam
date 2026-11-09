@@ -1,0 +1,48 @@
+/*
+ * E. Tema değiştirici düğmesi (KRAL_FX_LIGHT_THEME)
+ * Düğmeler yalnızca bayrak açıkken eklenir:
+ *  - üst iletişim bandının sağ ucunda (ana menü satırının yerleşimini değiştirmez)
+ *  - mobil menü panelinde (telefonda üst bant gizli olduğu için)
+ * Header her iki temada da koyu olduğu için tek görünüm yeterli.
+ */
+.kral-theme-toggle {
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    display: inline-grid;
+    place-items: center;
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--kral-gold);
+    font-size: 13px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color .3s ease, border-color .3s ease, color .3s ease;
+}
+.kral-theme-toggle:hover,
+.kral-theme-toggle:focus-visible { background: #fff; border-color: #fff; color: #151515; }
+.kral-theme-toggle .kral-theme-toggle__light { display: none; }
+:root[data-theme="light"] .kral-theme-toggle .kral-theme-toggle__dark { display: none; }
+:root[data-theme="light"] .kral-theme-toggle .kral-theme-toggle__light { display: inline; }
+
+/* Üst bant: diğer öğelerle aynı hizada, bant yüksekliğini değiştirmez */
+.header .kral-topbar .info-list li.kral-theme-toggle-item { display: inline-flex; align-items: center; height: 0; overflow: visible; }
+.header .kral-topbar .kral-theme-toggle { margin: -13px 0; }
+
+/* Mobil menü */
+.kral-theme-toggle-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 12px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #ddd;
+}
+.kral-theme-toggle-mobile .kral-theme-toggle { width: 34px; height: 34px; font-size: 15px; }

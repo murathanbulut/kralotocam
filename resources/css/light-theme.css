@@ -1,0 +1,8 @@
+/*
+ * E. İsteğe bağlı açık tema (KRAL_FX_LIGHT_THEME) - ayrı Vite girişi.
+ * Yalnızca bayrak açıkken sayfaya eklenir ve yalnızca <html data-theme="light"> durumunda etkilidir.
+ * Bu özelliği kaldırmak için bu dosyayı, resources/css/light/ klasörünü ve
+ * resources/js/features/theme-toggle.js dosyasını silmek (veya commit'i geri almak) yeterlidir.
+ */
+@import './light/reference-light.css';
+@import './light/kral-light.css';
