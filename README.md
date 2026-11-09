@@ -281,3 +281,12 @@ mobil/tablet/masaüstü görünümler (375 px'de yatay taşma yok), galeri light
 - Bootstrap, Bootstrap Icons, Swiper, fslightbox: MIT. Yazı tipleri (Sora, Playfair Display, DM Sans): SIL Open Font License.
 - Laravel ve Filament: MIT.
 - Logo ve atölye görselleri Kral Oto Cam'e aittir.
+
+---
+
+## 11. Görsel Geliştirmeler (isteğe bağlı)
+
+Slider yazı animasyonları, imleç efekti, kaydırmaya duyarlı header, görselli hizmet kartları ve isteğe bağlı
+açık tema `feature/visual-enhancements` dalında, her biri `.env` içindeki bir `KRAL_FX_*` anahtarıyla ayrı
+ayrı açılıp kapatılabilir. Ayrıntılar, geri alma adımları ve görsel karşılaştırma için:
+[docs/VISUAL-ENHANCEMENTS.md](docs/VISUAL-ENHANCEMENTS.md).
