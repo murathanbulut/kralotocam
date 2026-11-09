@@ -1,0 +1,17 @@
+/*
+ * C. Kaydırma yönüne duyarlı header (KRAL_FX_SCROLL_HEADER)
+ * Görünür durumdaki transform temadakiyle görsel olarak aynıdır (birim dönüşüm); yalnızca gizli durum eklenir.
+ */
+body.fx-scroll-header .header.kral-header-hidden {
+    transform: translate3d(0, -100%, 0);
+    transition: transform .35s ease, background-color .5s ease-in-out;
+}
+
+body.fx-scroll-header .header.sticky:not(.kral-header-hidden) {
+    transition: transform .45s cubic-bezier(.2, .7, .2, 1), background-color .5s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.fx-scroll-header .header.kral-header-hidden,
+    body.fx-scroll-header .header.sticky:not(.kral-header-hidden) { transition: none; }
+}
