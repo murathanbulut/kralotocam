@@ -1,0 +1,47 @@
+/*
+ * B. Fare takip efekti (KRAL_FX_CURSOR)
+ * Eleman yalnızca JS tarafından, masaüstünde oluşturulur. pointer-events: none -> tıklamaları engellemez.
+ */
+body.fx-cursor .bnz-pointer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2000; /* menülerin üstünde, lightbox'ın (1e9) altında */
+    width: 34px;
+    height: 34px;
+    margin: -17px 0 0 -17px;
+    border: 1.5px solid rgba(var(--color-one-rgb), .9);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    will-change: transform;
+    transition: opacity .25s ease, width .25s ease, height .25s ease, margin .25s ease, background-color .25s ease, border-color .25s ease;
+}
+body.fx-cursor .bnz-pointer.is-visible { opacity: 1; }
+
+/* Bağlantı ve butonlar */
+body.fx-cursor .bnz-pointer.bnz-large {
+    width: 58px;
+    height: 58px;
+    margin: -29px 0 0 -29px;
+    background-color: rgba(var(--color-one-rgb), .14);
+    border-color: rgba(var(--color-one-rgb), .6);
+}
+
+/* Form alanları, slider noktaları */
+body.fx-cursor .bnz-pointer.bnz-small {
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    background-color: var(--color-one);
+}
+
+/* Slider üzerinde */
+body.fx-cursor .bnz-pointer.bnz-drag {
+    width: 70px;
+    height: 70px;
+    margin: -35px 0 0 -35px;
+    border-color: rgba(255, 255, 255, .55);
+}
+
+body.fx-cursor .bnz-pointer.is-pressed { background-color: rgba(var(--color-one-rgb), .3); }
