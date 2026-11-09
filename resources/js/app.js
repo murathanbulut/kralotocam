@@ -8,6 +8,13 @@ import Swiper from 'swiper';
 import { Autoplay, EffectFade, Navigation, Pagination, A11y } from 'swiper/modules';
 import 'fslightbox';
 
+/*
+ * Bağımsız görsel geliştirmeler (config/kral.php): resources/js/features/*.js otomatik yüklenir.
+ * Her modül kendi CSS dosyasını içe aktarır ve varsayılan olarak bir init({ swiper }) fonksiyonu dışa aktarır.
+ * Bir özelliği kaldırmak için yalnızca kendi dosyalarını silmek yeterlidir; bu listeyi düzenlemek gerekmez.
+ */
+const features = import.meta.glob('./features/*.js', { eager: true });
+
 const body = document.body;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -111,11 +118,11 @@ function initStickyHeader() {
 /* ---------- Ana sayfa slider (referans: wptb-swiper-slider-two) ---------- */
 function initHeroSlider() {
     const el = document.querySelector('.wptb-swiper-slider-two');
-    if (!el) return;
+    if (!el) return null;
     const section = el.closest('.wptb-slider');
     const slides = el.querySelectorAll('.swiper-slide').length;
 
-    new Swiper(el, {
+    return new Swiper(el, {
         modules: [Autoplay, EffectFade, Navigation, Pagination, A11y],
         loop: slides > 1,
         effect: 'fade',
@@ -166,7 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initDesktopMenu();
     initAsidePanel();
     initStickyHeader();
-    initHeroSlider();
+    const swiper = initHeroSlider();
+    Object.values(features).forEach((feature) => feature.default?.({ swiper }));
     initReveal();
     initFormFeedback();
     if (typeof window.refreshFsLightbox === 'function') window.refreshFsLightbox();
