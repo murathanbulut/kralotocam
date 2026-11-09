@@ -1,0 +1,26 @@
+/*
+ * Kral Oto Cam ön yüz stilleri
+ * Sıralama referans temadaki main.css @import zinciriyle aynıdır.
+ * Eksik olan bootstrap.min.css, swiper ve bootstrap-icons npm paketlerinden alınır.
+ */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import 'swiper/css';
+@import 'swiper/css/effect-fade';
+@import 'swiper/css/pagination';
+@import 'swiper/css/navigation';
+
+/* Referans tema (kralotocam.com/assets/css) */
+@import './theme/animation.css';
+@import './theme/global.css';
+@import './theme/header.css';
+@import './theme/footer.css';
+@import './theme/components.css';
+@import './theme/blog.css';
+@import './theme/sidebar.css';
+@import './theme/portfolio.css';
+@import './theme/style.css';
+@import './theme/responsive.css';
+
+/* Kral Oto Cam uyarlamaları */
+@import './kral.css';
