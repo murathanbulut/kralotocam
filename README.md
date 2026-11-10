@@ -290,3 +290,5 @@ Slider yazı animasyonları, imleç efekti, kaydırmaya duyarlı header, görsel
 açık tema `feature/visual-enhancements` dalında, her biri `.env` içindeki bir `KRAL_FX_*` anahtarıyla ayrı
 ayrı açılıp kapatılabilir. Ayrıntılar, geri alma adımları ve görsel karşılaştırma için:
 [docs/VISUAL-ENHANCEMENTS.md](docs/VISUAL-ENHANCEMENTS.md).
+
+Tasarım revizeleri (saydam topbar, gizli tema düğmesi, logo altını vurgu rengi `#FDC300`, footer, yatay galeri vitrini) ve geri dönüş adımları: [docs/DESIGN-REVISIONS.md](docs/DESIGN-REVISIONS.md).
