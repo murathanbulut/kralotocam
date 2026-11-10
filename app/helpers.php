@@ -113,3 +113,27 @@ if (! function_exists('whatsapp_url')) {
         return 'https://wa.me/'.$number.($text ? '?text='.rawurlencode($text) : '');
     }
 }
+
+if (! function_exists('founding_year')) {
+    /**
+     * Doğrulanmış kuruluş yılı. Doğrulanmadıysa veya geçersizse null döner;
+     * böylece hiçbir sayfada, meta veride veya JSON-LD'de yayınlanmaz.
+     */
+    function founding_year(): ?int
+    {
+        $year = (int) setting('founding_year');
+        $verified = filter_var(setting('founding_year_verified'), FILTER_VALIDATE_BOOLEAN);
+
+        return $verified && $year >= 1900 && $year <= (int) date('Y') ? $year : null;
+    }
+}
+
+if (! function_exists('experience_years')) {
+    /** Doğrulanmış kuruluş yılından bu yana geçen yıl (yalnızca yıl farkı; ek iddia üretmez). */
+    function experience_years(): ?int
+    {
+        $year = founding_year();
+
+        return $year ? (int) date('Y') - $year : null;
+    }
+}

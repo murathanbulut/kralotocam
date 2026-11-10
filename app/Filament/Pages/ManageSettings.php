@@ -9,6 +9,7 @@ use Filament\Actions\Action;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Filament\Schemas\Components\Actions;
@@ -107,6 +108,16 @@ class ManageSettings extends Page
                         Fields::image('home_about_image', 'uploads/genel', 'Tanıtım görseli'),
                         Textarea::make('home_about_text')->label('Tanıtım metni')->rows(4)->maxLength(800)->columnSpanFull()
                             ->helperText('Boşsa "Hakkımızda" sayfasının giriş metni kullanılır.'),
+                    ]),
+                    Tab::make('Kurumsal')->icon(Heroicon::OutlinedBuildingOffice2)->columns(2)->schema([
+                        TextInput::make('founding_year')->label('Kuruluş yılı')->numeric()
+                            ->minValue(1900)->maxValue((int) date('Y'))
+                            ->helperText('Belgeden alınan başlangıç değeri doğrulama bekler.'),
+                        Toggle::make('founding_year_verified')->label('Kuruluş yılı doğrulandı')->inline(false)
+                            ->helperText('Kapalıyken kuruluş yılı ana sayfa, Hakkımızda, SEO verisi ve yapılandırılmış veride yayınlanmaz.'),
+                        Textarea::make('experience_text')->label('Deneyim metni')->rows(2)->maxLength(400)->columnSpanFull()
+                            ->helperText('Hakkımızda sayfasındaki "Kurumsal Geçmişimiz" alanında gösterilir. Doğrulanmamış yıl/sayı iddiası yazmayın.'),
+                        Textarea::make('company_history')->label('Kurumsal geçmiş açıklaması')->rows(5)->maxLength(3000)->columnSpanFull(),
                     ]),
                 ]),
             ]);

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FleetPartner;
+use App\Models\InsuranceCompany;
 use App\Models\Page;
 use App\Models\Service;
 use App\Support\RedirectResolver;
@@ -67,11 +69,20 @@ class SlugController extends Controller
             ->canonical($page->url())
             ->breadcrumbs([['Kurumsal', null], [$page->title]]);
 
+        // Sigorta/filo listeleri: yalnızca aktif VE doğrulanmış kayıtlar (published kapsamı)
+        $organizations = match ($page->template) {
+            Page::TEMPLATE_INSURANCE => InsuranceCompany::query()->published()->get(),
+            Page::TEMPLATE_FLEET => FleetPartner::query()->published()->get(),
+            default => null,
+        };
+
         return view('pages.show', [
             'seo' => $seo,
             'page' => $page,
+            'organizations' => $organizations,
             'corporatePages' => Page::query()->active()->ordered()
-                ->whereIn('slug', ['hakkimizda', 'misyonumuz', 'vizyonumuz'])->get(),
+                ->where(fn ($q) => $q->whereIn('slug', Page::CORPORATE_SLUGS)->orWhereIn('template', array_keys(Page::TEMPLATES)))
+                ->get(),
         ]);
     }
 }

@@ -187,6 +187,8 @@ class Seo
             ],
             'areaServed' => ['@type' => 'City', 'name' => 'Eskişehir'],
             'hasMap' => setting('map_link'),
+            // Yalnızca doğrulanmış kuruluş yılı (founding_year() doğrulanmamışsa null döner)
+            'foundingDate' => founding_year() ? (string) founding_year() : null,
             'sameAs' => $sameAs ?: null,
         ]);
     }

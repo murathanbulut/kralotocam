@@ -46,6 +46,11 @@ class Setting extends Model
         'home_about_title' => 'Kral Oto Cam',
         'home_about_text' => null,
         'home_about_image' => null,
+        // Kurumsal geçmiş: kuruluş yılı yalnızca founding_year_verified açıkken yayınlanır.
+        'founding_year' => null,
+        'founding_year_verified' => false,
+        'experience_text' => null,
+        'company_history' => null,
         'cookie_notice' => 'Sitemizde yalnızca sitenin çalışması için gerekli çerezler kullanılmaktadır.',
     ];
 

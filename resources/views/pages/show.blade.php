@@ -10,7 +10,15 @@
                             <p class="kral-lead">{{ $page->excerpt }}</p>
                         @endif
                         {!! $page->content !!}
+
+                        @if ($page->slug === 'hakkimizda')
+                            @include('pages.partials.company-history')
+                        @endif
                     </article>
+
+                    @if ($page->template)
+                        @include('pages.partials.organizations', ['template' => $page->template, 'organizations' => $organizations])
+                    @endif
                 </div>
                 <aside class="col-lg-4">
                     <div class="sidebar kral-sidebar">

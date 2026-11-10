@@ -908,3 +908,28 @@ body.mr_menu_active { overflow: hidden; }
 .header .mainnav ul.main-menu > li.active > a::before,
 .header .mainnav ul.main-menu > li:hover > a::before,
 .header.color-fixed .mainnav ul.main-menu > li.active > a::before { background-color: var(--kral-accent); }
+
+/* ---------- Kurumsal: sigorta / filo listeleri ve kurumsal geçmiş ---------- */
+.kral-orgs__title { font-size: 28px; margin-bottom: 20px; }
+.kral-org {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    min-height: 88px;
+    padding: 18px 20px;
+    background: var(--color-dark-two, #1a1a1a);
+    border: 1px solid var(--kral-border);
+    border-radius: var(--kral-radius);
+    transition: var(--transition-base);
+}
+.kral-org:hover { border-color: rgba(var(--kral-accent-rgb), .6); }
+.kral-org img { max-height: 48px; width: auto; max-width: 100%; object-fit: contain; }
+.kral-org__name { font-weight: 600; color: #fff; }
+.kral-org__text { margin: 0; font-size: 14px; line-height: 1.55; color: #c4c4c4; }
+.kral-orgs__note,
+.kral-orgs__empty { margin: 18px 0 0; font-size: 15px; color: #c4c4c4; }
+.kral-orgs__empty { padding: 18px 20px; border-left: 3px solid var(--kral-accent); background: rgba(var(--kral-accent-rgb), .06); border-radius: 0 var(--kral-radius) var(--kral-radius) 0; }
+.kral-history__year { font-size: 17px; color: #e8e8e8; }
+.kral-history__year strong { color: var(--kral-accent); font-size: 1.25em; }

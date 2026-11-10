@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ServiceSeeder::class,
             SiteContentSeeder::class,
+            CorporateContentSeeder::class,
         ]);
 
         $this->seedAdmin();

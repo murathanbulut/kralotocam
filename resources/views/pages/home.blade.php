@@ -114,6 +114,10 @@
                     <div class="wptb-about--text ps-md-4">
                         <h3>Eskişehir'de Oto Cam Servisi</h3>
                         <p>{{ setting('home_about_text') ?: $about?->excerpt }}</p>
+                        @if (founding_year())
+                            {{-- Yalnızca panelde doğrulanmış kuruluş yılı gösterilir --}}
+                            <p class="kral-history__year mb-0" data-founding-year><strong>{{ founding_year() }}</strong> yılından bu yana Eskişehir'de</p>
+                        @endif
                         <ul class="kral-check-list">
                             <li>Binek, ticari araç, traktör ve iş makinesi camları</li>
                             <li>Taş izi ve çatlaklar için onarım değerlendirmesi</li>
