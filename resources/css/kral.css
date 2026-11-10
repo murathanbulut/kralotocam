@@ -63,6 +63,9 @@ button:focus-visible,
     background: rgba(0, 0, 0, 0.55);
     border-bottom-color: rgba(255, 255, 255, 0.12);
 }
+/* Revize: topbar saydam. Siyah zemin temanın ".header .header-top { background-color: var(--color-black) }"
+   kuralından geliyor; yalnızca zemin rengi geçersiz kılındı (yükseklik, padding, alt çizgi aynı). */
+.header .header-top.kral-topbar { background: transparent; }
 .kral-topbar .container-fluid { padding-top: 6px; padding-bottom: 6px; }
 .header .kral-topbar .info-list li a {
     font-size: 13px;
