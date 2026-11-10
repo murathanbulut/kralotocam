@@ -31,7 +31,7 @@
                                     @endforeach
                                 </a>
                                 <a href="{{ whatsapp_url() }}" target="_blank" rel="noopener"><i class="bi bi-whatsapp" aria-hidden="true"></i> GSM / WhatsApp: {{ setting('phone_gsm') }}</a>
-                                <a href="{{ phone_href(setting('phone_landline')) }}"><i class="bi bi-telephone" aria-hidden="true"></i> Sabit: {{ setting('phone_landline') }}</a>
+                                <a href="{{ phone_href(setting('phone_landline')) }}"><i class="bi bi-telephone" aria-hidden="true"></i> Telefon: {{ setting('phone_landline') }}</a>
                                 <a href="mailto:{{ setting('email') }}"><i class="bi bi-envelope" aria-hidden="true"></i> {{ setting('email') }}</a>
                                 @if (setting('working_hours'))
                                     <span><i class="bi bi-clock" aria-hidden="true"></i> {{ setting('working_hours') }}</span>

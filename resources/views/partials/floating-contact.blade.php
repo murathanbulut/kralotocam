@@ -4,7 +4,7 @@
         <i class="bi bi-telephone-fill" aria-hidden="true"></i>
         <span class="kral-floating__tip">Hemen Arayın</span>
     </a>
-    <a href="{{ whatsapp_url() }}" class="kral-floating__btn kral-floating__btn--whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+    <a href="{{ whatsapp_url() }}" class="kral-floating__btn kral-floating__btn--whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp İletişim Hattı">
         <i class="bi bi-whatsapp" aria-hidden="true"></i>
         <span class="kral-floating__tip">WhatsApp</span>
     </a>

@@ -13,7 +13,7 @@
                     <div class="kral-cta__actions">
                         <a class="kral-cta__btn kral-cta__btn--whatsapp" href="{{ whatsapp_url() }}" target="_blank" rel="noopener">
                             <span class="kral-cta__btn-icon"><i class="bi bi-whatsapp" aria-hidden="true"></i></span>
-                            <span class="kral-cta__btn-text"><small>WhatsApp ile yazın</small>{{ setting('phone_gsm') }}</span>
+                            <span class="kral-cta__btn-text"><small>WhatsApp İletişim Hattı</small>{{ setting('phone_gsm') }}</span>
                             <i class="bi bi-arrow-up-right kral-cta__btn-arrow" aria-hidden="true"></i>
                         </a>
                         <a class="kral-cta__btn kral-cta__btn--phone" href="{{ phone_href(setting('phone_landline')) }}">

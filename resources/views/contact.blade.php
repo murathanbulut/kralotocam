@@ -9,13 +9,13 @@
                         <i class="bi bi-whatsapp" aria-hidden="true"></i>
                         <h2>GSM / WhatsApp</h2>
                         <a href="{{ phone_href(setting('phone_gsm')) }}">{{ setting('phone_gsm') }}</a>
-                        <a href="{{ whatsapp_url() }}" target="_blank" rel="noopener" class="kral-contact-card__sub">WhatsApp ile yazın</a>
+                        <a href="{{ whatsapp_url() }}" target="_blank" rel="noopener" class="kral-contact-card__sub">WhatsApp İletişim Hattı</a>
                     </div>
                 </div>
                 <div class="col-sm-6 col-lg-3">
                     <div class="kral-contact-card">
                         <i class="bi bi-telephone" aria-hidden="true"></i>
-                        <h2>Sabit Telefon</h2>
+                        <h2>Telefon</h2>
                         <a href="{{ phone_href(setting('phone_landline')) }}">{{ setting('phone_landline') }}</a>
                     </div>
                 </div>
