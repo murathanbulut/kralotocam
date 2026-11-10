@@ -31,11 +31,10 @@ class GalleryShowcaseTest extends TestCase
         $html = $this->get('/galeri/')
             ->assertOk()
             ->assertSee('data-gallery-showcase', false)
-            ->assertSee('data-showcase-prev', false)
-            ->assertSee('data-showcase-next', false)
+            ->assertSee('data-showcase-track', false)
             ->getContent();
 
-        $this->assertSame($expected->count(), substr_count($html, 'class="swiper-slide kral-showcase__slide"'));
+        $this->assertSame($expected->count(), substr_count($html, 'data-showcase-item'));
 
         foreach ($expected as $image) {
             $this->assertStringContainsString('src="'.media_url($image->image).'"', $html);
@@ -73,7 +72,7 @@ class GalleryShowcaseTest extends TestCase
 
         $html = $this->get($album->url())->assertOk()->getContent();
 
-        $this->assertSame($album->activeImages()->count(), substr_count($html, 'class="swiper-slide kral-showcase__slide"'));
+        $this->assertSame($album->activeImages()->count(), substr_count($html, 'data-showcase-item'));
         $this->assertStringContainsString('data-fslightbox="album-'.$album->id.'"', $html);
         foreach ($others as $path) {
             $this->assertStringNotContainsString('src="'.media_url($path).'"', $html);
