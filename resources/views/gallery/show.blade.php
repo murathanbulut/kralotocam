@@ -19,15 +19,8 @@
             @if ($images->isEmpty())
                 <div class="kral-empty"><i class="bi bi-images" aria-hidden="true"></i><p>Bu albüme henüz görsel eklenmedi.</p></div>
             @else
-                <div class="effect-gradient has-radius">
-                    <div class="row g-3">
-                        @foreach ($images as $image)
-                            <div class="col-sm-6 col-lg-4">
-                                <x-gallery-item :image="$image" :group="'album-'.$album->id" />
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
+                <h2 class="visually-hidden">{{ $album->title }} görselleri</h2>
+                <x-gallery-showcase :images="$images" :group="'album-'.$album->id" :label="$album->title.' görselleri'" />
             @endif
         </div>
     </section>

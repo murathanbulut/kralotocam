@@ -6,33 +6,23 @@
             @if ($albums->isEmpty())
                 <div class="kral-empty"><i class="bi bi-images" aria-hidden="true"></i><p>Galeriye henüz görsel eklenmedi.</p></div>
             @else
+                {{-- Albüm filtresi: her albüm kendi sayfasında kendi yatay görsel grubunu gösterir --}}
                 <nav class="kral-filter" aria-label="Galeri albümleri">
                     <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-2">
+                        <li><a href="{{ site_url('galeri') }}" class="active" aria-current="page">Tümü <span class="badge">{{ $albums->sum('images_count') }}</span></a></li>
                         @foreach ($albums as $album)
                             <li><a href="{{ $album->url() }}">{{ $album->title }} <span class="badge">{{ $album->images_count }}</span></a></li>
                         @endforeach
                     </ul>
                 </nav>
 
-                @foreach ($albums as $album)
-                    <div class="kral-album">
-                        <div class="kral-album__head">
-                            <h2 class="kral-album__title"><a href="{{ $album->url() }}">{{ $album->title }}</a></h2>
-                            @if ($album->description)
-                                <p>{{ $album->description }}</p>
-                            @endif
-                        </div>
-                        <div class="effect-gradient has-radius">
-                            <div class="row g-3">
-                                @foreach ($album->images as $image)
-                                    <div class="col-sm-6 col-lg-4">
-                                        <x-gallery-item :image="$image" :group="'album-'.$album->id" />
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+                {{-- Tüm albümlerin aktif görselleri tek vitrinde; her kartta albüm adı --}}
+                <h2 class="visually-hidden">Uygulamalarımız</h2>
+                <x-gallery-showcase
+                    :images="$albums->flatMap(fn ($album) => $album->images->each(fn ($image) => $image->setRelation('album', $album)))"
+                    group="galeri"
+                    show-album
+                    label="Tüm galeri görselleri" />
             @endif
         </div>
     </section>
