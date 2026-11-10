@@ -124,6 +124,11 @@
                             <li>ADAS ve ön kamera kalibrasyonu</li>
                             <li>Cam filmi, dikiz ve yan ayna uygulamaları</li>
                         </ul>
+                        {{-- İşimizin Merkezinde Güven Var (SEO paketi 3.8) — mevcut tanıtım alanına entegre --}}
+                        <div class="kral-trust">
+                            <h4 class="kral-trust__title">İşimizin Merkezinde Güven Var</h4>
+                            <p>Amacımız yalnızca hasarlı camı yenilemek değil; ne yapılacağını, neden yapılacağını ve aracınızı ne zaman teslim alabileceğinizi açıkça bilmenizi sağlamak. Araç ve hasar türüne uygun işlem planlıyor, montajda detaylara önem veriyor, kamera ve sensör donanımlı araçların ihtiyaçlarını dikkate alıyoruz.</p>
+                        </div>
                         <x-theme-button :href="site_url('hakkimizda')" class="mt-4">Hakkımızda</x-theme-button>
                     </div>
                 </div>
@@ -219,6 +224,26 @@
                     </li>
                 @endforeach
             </ol>
+
+            {{-- Sigorta ve filo süreçleri (SEO paketi 3.7) — hizmet sürecinin devamı olarak, mevcut bilgi kartlarıyla --}}
+            <div class="row g-4 kral-process__extra">
+                <div class="col-md-6">
+                    <div class="kral-info-card h-100 wow fadeInUp">
+                        <span class="kral-info-card__icon"><i class="bi bi-shield-check" aria-hidden="true"></i></span>
+                        <h3>Sigorta İşlemlerinizde Daha Anlaşılır Bir Süreç</h3>
+                        <p>Kral Oto Cam, cam hasarı yaşayan araç sahiplerinin sigorta ve kasko işlemlerinde izlenecek süreci anlamalarına yardımcı olur. Teminat kapsamı, muafiyet ve onay adımları poliçenize göre değişebilir; işlem öncesinde süreci birlikte netleştiririz.</p>
+                        <a href="{{ site_url('anlasmali-sigortalar') }}" class="kral-more-link">Anlaşmalı Sigortalar <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="kral-info-card h-100 wow fadeInUp" style="--delay: 120ms">
+                        <span class="kral-info-card__icon"><i class="bi bi-truck" aria-hidden="true"></i></span>
+                        <h3>Filo ve Kurumsal Araçlar</h3>
+                        <p>Kurumsal araçların cam değişimi, onarım ve kontrol ihtiyaçlarında araç türüne, hasarın durumuna ve filo şirketinizin prosedürüne göre planlı servis ve randevu koordinasyonu sunuyoruz.</p>
+                        <a href="{{ site_url('filo-cozumleri') }}" class="kral-more-link">Filo Çözümleri <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

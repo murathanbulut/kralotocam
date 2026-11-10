@@ -166,4 +166,19 @@ class CorporateContentTest extends TestCase
         $this->assertStringContainsString('href="'.site_url('anlasmali-sigortalar').'"', $html);
         $this->assertStringContainsString('href="'.site_url('filo-cozumleri').'"', $html);
     }
+
+    public function test_home_page_corporate_sections_link_to_existing_pages(): void
+    {
+        $this->get('/')
+            ->assertOk()
+            ->assertSee('İşimizin Merkezinde Güven Var')
+            ->assertSee('Sigorta İşlemlerinizde Daha Anlaşılır Bir Süreç')
+            ->assertSee('Filo ve Kurumsal Araçlar')
+            ->assertSee('href="'.site_url('anlasmali-sigortalar').'" class="kral-more-link"', false)
+            ->assertSee('href="'.site_url('filo-cozumleri').'" class="kral-more-link"', false)
+            ->assertSee('data-founding-year', false);
+
+        $this->get('/anlasmali-sigortalar/')->assertOk();
+        $this->get('/filo-cozumleri/')->assertOk();
+    }
 }

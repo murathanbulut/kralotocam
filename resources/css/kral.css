@@ -965,6 +965,13 @@ body.mr_menu_active { overflow: hidden; }
 
 /* Footer alt şerit: Bilgilendirme bağlantıları (telif satırının altında, mevcut yerleşim korunur) */
 .kral-legal-links ul { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; margin: 8px 0 0; padding: 0; }
-.kral-legal-links a { font-size: 13px; color: #a8a8a8; transition: color .3s ease; }
-.kral-legal-links a:hover,
-.kral-legal-links a:focus-visible { color: var(--kral-accent); }
+.footer .copyright .kral-legal-links a { font-size: 13px; color: #a8a8a8; transition: color .3s ease; }
+.footer .copyright .kral-legal-links a:hover,
+.footer .copyright .kral-legal-links a:focus-visible { color: var(--kral-accent); }
+
+/* Ana sayfa: sigorta/filo kartları (süreç bölümünün devamı) ve güven notu (kurumsal tanıtım) */
+.kral-process__extra { margin-top: 40px; }
+.kral-process__extra .kral-info-card p { font-size: 15px; line-height: 1.7; color: #c8c8c8; margin-bottom: 18px; flex: 1; }
+.kral-trust { margin-top: 26px; padding-left: 18px; border-left: 3px solid var(--kral-accent); }
+.kral-trust__title { font-size: 18px; margin-bottom: 8px; }
+.kral-trust p { margin: 0; font-size: 15px; line-height: 1.7; color: #c8c8c8; }
