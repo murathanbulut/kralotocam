@@ -46,6 +46,14 @@
 :root[data-theme="light"] .kral-cta__box .kral-cta__title { color: #fff; }
 
 /* ---------- Genel ---------- */
+/* Vurgu rengi: referans light.css açık temada --color-one değerini kırmızıya (#B90808) çekiyor; altına bağla.
+   Beyaz zemin üzerindeki altın metin okunmadığı için metin vurgularında koyu altın (#8A6A00) kullanılır. */
+:root[data-theme="light"] body {
+    --color-one: var(--kral-accent);
+    --color-one-rgb: var(--kral-accent-rgb);
+    --link-color-hover: #8A6A00;
+    --kral-accent-text: #8A6A00;
+}
 :root[data-theme="light"] {
     --kral-card-bg: #FFFFFF;
     --kral-border: rgba(0, 0, 0, 0.1);
@@ -82,17 +90,17 @@
 :root[data-theme="light"] .kral-service-card:hover { background: #fafafa; }
 :root[data-theme="light"] .kral-step__no { color: rgba(0, 0, 0, 0.06); }
 
-/* Kontrast için altın vurgular açık zeminde kırmızıya döner */
+/* Kontrast için altın metin vurguları açık zeminde koyu altına döner */
 :root[data-theme="light"] .kral-more-link,
 :root[data-theme="light"] .kral-side-contact__link,
 :root[data-theme="light"] .kral-contact-card a.kral-contact-card__sub,
 :root[data-theme="light"] .kral-map-note a,
 :root[data-theme="light"] .kral-post-meta a,
 :root[data-theme="light"] .wptb-blog-grid1 .wptb-item--date a,
-:root[data-theme="light"] .kral-content a:not(.btn) { color: var(--color-one); }
+:root[data-theme="light"] .kral-content a:not(.btn) { color: var(--kral-accent-text); }
 :root[data-theme="light"] .kral-more-link:hover { color: #151515; }
 :root[data-theme="light"] .kral-side-nav a:hover,
-:root[data-theme="light"] .kral-side-nav li.active a { color: var(--color-one); }
+:root[data-theme="light"] .kral-side-nav li.active a { color: var(--kral-accent-text); }
 
 /* Galeri */
 :root[data-theme="light"] .kral-gallery-item { background: #fff; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); }

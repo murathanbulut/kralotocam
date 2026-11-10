@@ -55,12 +55,14 @@
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .78) 55%, rgba(0, 0, 0, .9) 100%);
     transition: padding .45s ease;
 }
-/* Hover / odak: referans "effect-gradient" kırmızı gradyanı alttan yükselir */
+/* Hover / odak: referans "effect-gradient" yaklaşımı - katman alttan belirir */
 .kral-svc-grid .kral-svc-card .wptb-item--holder::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--gradient-one-180);
+    /* Altın vurgu: altın zemin üzerinde beyaz metin okunmadığı için koyu gradyan + altın alt çizgi */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .6) 35%, rgba(0, 0, 0, .94) 100%);
+    box-shadow: inset 0 -3px 0 var(--kral-accent);
     opacity: 0;
     transition: opacity .45s ease;
 }
@@ -135,8 +137,8 @@
     width: 48px;
     height: 48px;
     font-size: 20px;
-    color: var(--color-one);
-    background-color: var(--color-white-fixed);
+    color: var(--kral-accent-contrast);
+    background-color: var(--kral-accent);
     border-radius: 100%;
     display: flex;
     align-items: center;
@@ -164,3 +166,9 @@
 @media (max-width: 767.98px) {
     .kral-svc-grid .kral-svc-card .wptb-item--image { aspect-ratio: 4 / 3; }
 }
+
+/* Altın vurgu: hover/odakta başlık altın */
+.kral-svc-grid .kral-svc-card:hover .kral-svc-card__link,
+.kral-svc-grid .kral-svc-card:focus-within .kral-svc-card__link { color: var(--kral-accent); }
+.kral-svc-grid .kral-svc-card:hover .kral-svc-card__cta,
+.kral-svc-grid .kral-svc-card:focus-within .kral-svc-card__cta { color: var(--kral-accent); }

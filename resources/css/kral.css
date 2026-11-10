@@ -1,12 +1,22 @@
 /*
  * Kral Oto Cam - referans temaya eklenen / uyarlanan stiller.
- * Renkler ve yazı tipleri temadaki değişkenlerden gelir:
- *   --color-one: #B90808 (birincil kırmızı), --color-dark-one: #151515 (zemin)
- * Logodaki altın tonu vurgu rengi olarak eklenmiştir.
+ * Renkler ve yazı tipleri temadaki değişkenlerden gelir; --color-dark-one: #151515 (zemin).
+ *
+ * VURGU RENGİ (tek merkez): --kral-accent
+ *   Logodaki baskın altın sarısı: #FDC300 (rgb 253, 195, 0) - referanslar/.../logo.png piksel analizi.
+ *   Temanın kırmızı vurgusu (--color-one: #B90808) ve --link-color-hover bu değişkene bağlanmıştır.
+ *   Altın zemin üzerindeki metin/ikonlar için --kral-accent-contrast (koyu) kullanılır.
+ *   Hata/uyarı kırmızıları (form hataları, alert-danger) bilinçli olarak ayrı tutulmuştur.
  */
 :root {
-    --kral-gold: #F2B705;
-    --kral-gold-rgb: 242, 183, 5;
+    --kral-accent: #FDC300;
+    --kral-accent-rgb: 253, 195, 0;
+    --kral-accent-contrast: #151515;
+    --color-one: var(--kral-accent);
+    --color-one-rgb: var(--kral-accent-rgb);
+    --link-color-hover: var(--kral-accent);
+    --kral-gold: var(--kral-accent);
+    --kral-gold-rgb: var(--kral-accent-rgb);
     --kral-whatsapp: #25D366;
     --kral-radius: 6px;
     --kral-card-bg: #1B1B1B;
@@ -811,3 +821,62 @@ body.mr_menu_active { overflow: hidden; }
 .wptb-about-two .round-button .btn .text-first { padding-right: 0; }
 .wptb-about-two .round-button .btn .text-first { line-height: 1.2; }
 .wptb-about-two .round-button .btn .text-second { display: inline-flex; justify-content: center; line-height: 1; margin-top: 1px; }
+
+/* =====================================================================
+ * Altın vurgu: kontrast düzenlemeleri
+ * Altın (#FDC300) zemin üzerinde beyaz metin okunmaz; bu alanlarda koyu metin kullanılır.
+ * Yerleşim, boyut ve animasyonlar değiştirilmez; yalnızca renkler.
+ * ===================================================================== */
+
+/* Tema butonları (.btn / .btn-two): altın zemin + koyu metin; hover'da beyaz zemin + koyu metin.
+   Beyaz butonlar ve WhatsApp butonu kendi renklerini korur. */
+.btn:not(.white):not(.kral-header-btn) { color: var(--kral-accent-contrast); }
+.btn:not(.white):not(.kral-header-btn):hover,
+.btn:not(.white):not(.kral-header-btn):focus,
+.btn:not(.white):not(.kral-header-btn).active { color: var(--kral-accent-contrast); }
+
+/* Altın zeminli küçük kontroller */
+.skip-link,
+.skip-link:focus,
+.kral-hero__side a:hover,
+.kral-hero .wptb-swiper-arrow:hover,
+.kral-gallery-item .wptb-item--link,
+.kral-filter a:hover,
+.kral-filter a.active,
+.kral-pagination .page-item.active .page-link,
+.kral-floating__btn--phone,
+.kral-floating__btn--phone:hover { color: var(--kral-accent-contrast); }
+.kral-filter a:hover .badge,
+.kral-filter a.active .badge { background: rgba(0, 0, 0, .18); color: var(--kral-accent-contrast); }
+
+/* Onay kutusu işareti altın zeminde koyu */
+.kral-form .form-check-input:checked[type="checkbox"] {
+    --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23151515' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+/* Bölüm başlığı dekoru: harfler açık renk, yalnızca altın bandın üzerindeki kısım koyu
+   (bant: üstten %40, yükseklik %34 -> metin rengi aynı aralıkta koyulaşır) */
+.kral-deco span {
+    background-image: linear-gradient(180deg,
+        var(--color-three) 0 40%,
+        var(--kral-accent-contrast) 40% 74%,
+        var(--color-three) 74% 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Slider kontrolleri: aktif nokta halkası ve iç noktası altın */
+.kral-hero .wptb-swiper-dots.style2 .swiper-pagination-bullet.swiper-pagination-bullet-active { border-color: var(--kral-accent); }
+.kral-hero .wptb-swiper-dots.style2 .swiper-pagination-bullet.swiper-pagination-bullet-active:before { background-color: var(--kral-accent); }
+
+/* Dekoratif parıltı katmanı (light-2-light.png, kırmızı ışık efekti): görsel dosyası değiştirilmeden
+   CSS ile altın tonuna çevrilir. Fotoğraflara uygulanmaz. */
+.wptb-about-two .wptb-item-layer-one img { filter: hue-rotate(62deg) saturate(1.6) brightness(1.25); }
+
+/* Çağrı kutusu parıltısı: altın kırmızıdan çok daha açık olduğu için yoğunluk azaltıldı */
+.kral-cta__box {
+    background:
+        radial-gradient(circle at 85% 20%, rgba(var(--kral-accent-rgb), .22), transparent 55%),
+        linear-gradient(135deg, #1d1d1d 0%, #0f0f0f 100%);
+}
