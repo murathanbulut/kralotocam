@@ -883,3 +883,8 @@ body.mr_menu_active { overflow: hidden; }
         radial-gradient(circle at 85% 20%, rgba(var(--kral-accent-rgb), .22), transparent 55%),
         linear-gradient(135deg, #1d1d1d 0%, #0f0f0f 100%);
 }
+
+/* Header alt menü: fareyle üzerine gelinen alt başlık vurgu renginde (sarı) */
+.header .mainnav ul.main-menu li ul li a:hover,
+.header .mainnav ul.main-menu li ul li a:focus-visible { color: var(--kral-accent); }
+
