@@ -75,7 +75,7 @@
 :root[data-theme="light"] .kral-empty { color: #5a5a5a; }
 
 /* Bölüm başlığı dekoru: açık zeminde koyu yazı + kırmızı bant */
-:root[data-theme="light"] .kral-deco span { color: #151515; }
+:root[data-theme="light"] .kral-deco .kral-deco__text { background-image: linear-gradient(#151515, #151515); }
 
 /* Kartlar */
 :root[data-theme="light"] .kral-feature,

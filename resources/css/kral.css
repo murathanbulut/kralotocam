@@ -769,7 +769,7 @@ body.mr_menu_active { overflow: hidden; }
 /* Bölüm başlığı dekoru: açık renk büyük başlık, arkasında kırmızı bant */
 .kral-deco { position: relative; margin: 0 0 22px; line-height: .9; max-width: 100%; container-type: inline-size; }
 .kral-deco--center { text-align: center; }
-.kral-deco span {
+.kral-deco > span {
     position: relative;
     isolation: isolate;
     display: inline-block;
@@ -785,7 +785,7 @@ body.mr_menu_active { overflow: hidden; }
     color: var(--color-three); /* açık renk yazı, kırmızı bant arkada */
     user-select: none;
 }
-.kral-deco span::before {
+.kral-deco > span::before {
     content: '';
     position: absolute;
     left: 0;
@@ -855,8 +855,11 @@ body.mr_menu_active { overflow: hidden; }
 }
 
 /* Bölüm başlığı dekoru: harfler açık renk, yalnızca altın bandın üzerindeki kısım koyu
-   (bant: üstten %40, yükseklik %34 -> metin rengi aynı aralıkta koyulaşır) */
-.kral-deco span {
+   (bant: üstten %40, yükseklik %34 -> metin rengi aynı aralıkta koyulaşır).
+   Renk geçişi iç span'e uygulanır; böylece bant (dış span::before) harflerin arkasında kalır. */
+.kral-deco .kral-deco__text {
+    display: inline-block;
+    line-height: inherit;
     background-image: linear-gradient(180deg,
         var(--color-three) 0 40%,
         var(--kral-accent-contrast) 40% 74%,
