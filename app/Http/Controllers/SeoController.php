@@ -19,6 +19,7 @@ class SeoController extends Controller
             ['loc' => site_url('galeri'), 'priority' => '0.6', 'changefreq' => 'monthly'],
             ['loc' => site_url('blog'), 'priority' => '0.6', 'changefreq' => 'weekly'],
             ['loc' => site_url('iletisim'), 'priority' => '0.8', 'changefreq' => 'yearly'],
+            ['loc' => site_url('sikca-sorulan-sorular'), 'priority' => '0.6', 'changefreq' => 'monthly'],
         ]);
 
         Service::query()->active()->ordered()->get()->each(fn ($s) => $urls->push([

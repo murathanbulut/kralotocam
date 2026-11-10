@@ -125,7 +125,7 @@ HTML,
         }
     }
 
-    /** Kurumsal açılır menüsüne iki bağlantı eklenir; diğer menü öğelerine dokunulmaz. */
+    /** Kurumsal açılır menüsüne sigorta, filo ve SSS bağlantıları eklenir; diğer menü öğelerine dokunulmaz. */
     private function menu(): void
     {
         $corporate = MenuItem::query()->whereNull('parent_id')->where('title', 'Kurumsal')->first();
@@ -134,7 +134,7 @@ HTML,
         }
 
         $order = (int) $corporate->children()->max('sort_order');
-        foreach (['Anlaşmalı Sigortalar' => '/anlasmali-sigortalar/', 'Filo Çözümleri' => '/filo-cozumleri/'] as $title => $url) {
+        foreach (['Anlaşmalı Sigortalar' => '/anlasmali-sigortalar/', 'Filo Çözümleri' => '/filo-cozumleri/', 'Sıkça Sorulan Sorular' => '/sikca-sorulan-sorular/'] as $title => $url) {
             if (! $corporate->children()->where('url', $url)->exists()) {
                 $corporate->children()->create(['title' => $title, 'url' => $url, 'sort_order' => ++$order, 'is_active' => true]);
             }

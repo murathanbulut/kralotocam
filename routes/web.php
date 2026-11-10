@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SeoController;
@@ -32,6 +33,8 @@ Route::middleware(EnsureTrailingSlash::class)->group(function () {
     Route::get('blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 
     Route::get('iletisim', [ContactController::class, 'show'])->name('contact');
+
+    Route::get('sikca-sorulan-sorular', FaqController::class)->name('faq');
 
     // Hizmet ve kurumsal sayfalar: /binek-arac-cam-degisimi/, /hakkimizda/ ...
     Route::get('{slug}', SlugController::class)

@@ -933,3 +933,32 @@ body.mr_menu_active { overflow: hidden; }
 .kral-orgs__empty { padding: 18px 20px; border-left: 3px solid var(--kral-accent); background: rgba(var(--kral-accent-rgb), .06); border-radius: 0 var(--kral-radius) var(--kral-radius) 0; }
 .kral-history__year { font-size: 17px; color: #e8e8e8; }
 .kral-history__year strong { color: var(--kral-accent); font-size: 1.25em; }
+
+/* ---------- SSS akordeonu (tema .wptb-accordion1 + yerel <details>) ---------- */
+.kral-faq__group + .kral-faq__group { margin-top: 44px; }
+.kral-faq__category { font-size: 15px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--kral-accent); margin: 32px 0 6px; }
+.kral-accordion .wptb-item-title { font-size: 20px; line-height: 1.4; list-style: none; outline: none; }
+.kral-accordion .wptb-item-title::-webkit-details-marker { display: none; }
+.kral-accordion .wptb-item-title:hover { color: var(--kral-accent); }
+.kral-accordion .wptb-item-title:focus-visible { outline: 2px solid var(--kral-accent); outline-offset: 4px; border-radius: 4px; }
+.kral-accordion .wptb-item-title i { font-size: 18px; }
+/* Açık durum: temadaki .active kurallarının <details open> karşılığı */
+.kral-accordion .wptb--item[open] > .wptb-item-title { border-bottom-color: var(--color-one); color: var(--color-one); }
+.kral-accordion .wptb--item[open] > .wptb-item-title i { transform: translateY(-50%) rotateZ(180deg); color: var(--color-one); }
+.kral-accordion .wptb--item[open] > .wptb-item-title i.plus { opacity: 0; }
+.kral-accordion .wptb--item[open] > .wptb-item-title i.minus { opacity: 1; }
+.kral-accordion .wptb--item .wptb-item--content { display: block; padding: 18px 0 24px; color: #c4c4c4; }
+.kral-accordion .wptb-item--content p { margin: 0; font-size: 16px; line-height: 1.75; }
+/* Hafif açılma animasyonu (destekleyen tarayıcılarda) */
+@supports (interpolate-size: allow-keywords) {
+    .kral-accordion { interpolate-size: allow-keywords; }
+    .kral-accordion .wptb--item::details-content { height: 0; overflow: hidden; transition: height .3s ease, content-visibility .3s allow-discrete; }
+    .kral-accordion .wptb--item[open]::details-content { height: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .kral-accordion .wptb--item::details-content { transition: none; }
+}
+@media (max-width: 767.98px) {
+    .kral-accordion .wptb-item-title { font-size: 17px; }
+    .kral-accordion .wptb-item-title span { padding-right: 48px; }
+}

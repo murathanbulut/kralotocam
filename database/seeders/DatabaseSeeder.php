@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             SiteContentSeeder::class,
             CorporateContentSeeder::class,
+            FaqSeeder::class,
         ]);
 
         $this->seedAdmin();

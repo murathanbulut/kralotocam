@@ -28,7 +28,7 @@ class Fields
     /** Kök seviyede (/{slug}/) kullanılamayacak adresler. */
     public const RESERVED_SLUGS = [
         'admin', 'livewire', 'filament', 'storage', 'build', 'images', 'css', 'js', 'fonts',
-        'hizmetler', 'galeri', 'blog', 'iletisim', 'sitemap', 'robots', 'tr', 'en', 'up',
+        'hizmetler', 'galeri', 'blog', 'iletisim', 'sikca-sorulan-sorular', 'sitemap', 'robots', 'tr', 'en', 'up',
     ];
 
     public static function image(string $name = 'cover_image', string $directory = 'uploads', string $label = 'Kapak görseli'): FileUpload
