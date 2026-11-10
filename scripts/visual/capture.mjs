@@ -54,6 +54,15 @@ async function prepare(page) {
         const pending = [...document.images].filter((i) => !i.complete).map((i) => new Promise((r) => { i.onload = i.onerror = r; }));
         await Promise.race([Promise.all(pending), new Promise((r) => setTimeout(r, 5000))]);
         await document.fonts.ready;
+        // En üste dönüldükten sonra header'ın (sticky / gizli) sınıflarının oturmasını bekle
+        window.scrollTo(0, 0);
+        for (let i = 0; i < 20; i++) {
+            window.dispatchEvent(new Event('scroll'));
+            await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+            const h = document.getElementById('site-header');
+            if (window.scrollY === 0 && h && !h.classList.contains('sticky') && !h.classList.contains('kral-header-hidden')) break;
+            await new Promise((r) => setTimeout(r, 50));
+        }
     });
     await new Promise((r) => setTimeout(r, 400));
 }
