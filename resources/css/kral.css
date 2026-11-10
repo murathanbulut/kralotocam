@@ -308,7 +308,7 @@ body.mr_menu_active { overflow: hidden; }
 .kral-service-card:hover { background: #222; transform: translateY(-4px); }
 .kral-service-card .wptb-item--inner { gap: 24px; height: 100%; justify-content: flex-start; }
 .kral-service-card .wptb-item--icon { max-width: 64px; max-height: 64px; height: 56px; display: flex; align-items: center; }
-.kral-service-card .wptb-item--icon img { width: 56px; height: 56px; }
+.kral-service-card .wptb-item--icon img { width: 56px; height: 56px; object-fit: contain; }
 .kral-service-glyph { font-size: 44px; line-height: 1; color: var(--color-one); }
 .kral-service-card .wptb-item--title { font-size: 20px; line-height: 1.35; }
 .kral-service-card .wptb-item--title a { color: #fff; }
