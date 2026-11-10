@@ -95,6 +95,10 @@ const shots = [
         },
     },
     { name: '11-service-detail-mobile', url: '/binek-arac-cam-degisimi/', viewport: MOBILE, fullPage: true },
+    { name: '12-gallery-album', url: '/galeri/adas-ve-kamera-kalibrasyonu/', viewport: DESKTOP, fullPage: true },
+    { name: '13-gallery-mobile', url: '/galeri/', viewport: MOBILE, fullPage: true },
+    { name: '14-topbar-closeup', url: '/', viewport: DESKTOP, clip: { x: 0, y: 0, width: 1440, height: 130 } },
+    { name: '15-topbar-inner-page', url: '/iletisim/', viewport: DESKTOP, clip: { x: 0, y: 0, width: 1440, height: 130 } },
 ];
 
 fs.mkdirSync(outDir, { recursive: true });
