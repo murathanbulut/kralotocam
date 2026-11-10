@@ -38,8 +38,9 @@ class CorporateContentTest extends TestCase
     {
         $this->assertSame(count(CorporateContentSeeder::INSURANCE), InsuranceCompany::count());
         $this->assertSame(21, FleetPartner::count());
-        $this->assertSame(0, InsuranceCompany::where('is_verified', true)->count());
-        $this->assertSame(0, FleetPartner::where('is_verified', true)->count());
+        // İşletme onayıyla tüm kayıtlar doğrulanmış başlar
+        $this->assertSame(count(CorporateContentSeeder::INSURANCE), InsuranceCompany::published()->count());
+        $this->assertSame(21, FleetPartner::published()->count());
         $this->assertStringContainsString('[unvan teyidi]', InsuranceCompany::where('name', 'Anlara sigorta')->value('internal_note'));
 
         // Tekrar çalıştırma yinelenen kayıt üretmez
@@ -49,6 +50,9 @@ class CorporateContentTest extends TestCase
 
     public function test_pages_open_with_seo_and_hide_unverified_records(): void
     {
+        InsuranceCompany::query()->update(['is_verified' => false]);
+        FleetPartner::query()->update(['is_verified' => false]);
+
         foreach (['/anlasmali-sigortalar/' => 'Anlaşmalı Sigortalar', '/filo-cozumleri/' => 'Filo ve Kurumsal Araç Çözümleri'] as $url => $title) {
             $this->get($url)
                 ->assertOk()
@@ -71,6 +75,8 @@ class CorporateContentTest extends TestCase
 
     public function test_only_verified_and_active_records_are_listed(): void
     {
+        InsuranceCompany::query()->update(['is_verified' => false]);
+        FleetPartner::query()->update(['is_verified' => false]);
         InsuranceCompany::where('name', 'Allianz sigorta')->first()->update(['is_verified' => true]);
         InsuranceCompany::where('name', 'Axa sigorta')->first()->update(['is_verified' => true, 'is_active' => false]);
         FleetPartner::where('name', 'Sixt Rent a Car')->first()->update(['is_verified' => true, 'logo' => 'uploads/filo/sixt.png']);
@@ -91,6 +97,7 @@ class CorporateContentTest extends TestCase
 
     public function test_admin_can_create_and_edit_organizations(): void
     {
+        InsuranceCompany::query()->update(['is_verified' => false]);
         $this->actingAs(User::factory()->create(['is_admin' => true]));
 
         Livewire::test(CreateInsuranceCompany::class)
@@ -127,13 +134,14 @@ class CorporateContentTest extends TestCase
 
     public function test_founding_year_is_hidden_until_verified(): void
     {
+        $this->assertSame(2005, founding_year()); // işletme onayıyla doğrulanmış başlar
+        Setting::put(['founding_year_verified' => '0']);
         $this->assertSame('2005', (string) Setting::get('founding_year'));
         $this->assertNull(founding_year());
 
         foreach (['/', '/hakkimizda/'] as $url) {
             $this->get($url)->assertDontSee('data-founding-year', false)->assertDontSee('foundingDate', false);
         }
-        $this->get('/')->assertDontSee('2005');
         $this->assertArrayNotHasKey('foundingDate', Seo::localBusinessSchema());
 
         $this->actingAs(User::factory()->create(['is_admin' => true]));

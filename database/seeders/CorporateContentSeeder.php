@@ -14,8 +14,8 @@ use Illuminate\Database\Seeder;
  * Kaynak: Kral_Oto_Cam_Profesyonel_Web_SEO_Paketi.docx (bölüm 7.1, 7.2, 4 ve 17).
  *
  * - İsimler belgedeki yazımıyla aktarılır; belgedeki "[unvan teyidi]" notları iç nota taşınır.
- * - Tüm kayıtlar DOĞRULANMAMIŞ başlar ve ön yüzde listelenmez.
- * - Kuruluş yılı (2005) doğrulama bekleyen değer olarak kaydedilir; doğrulanmadan yayınlanmaz.
+ * - Liste ve kuruluş yılı (2005) işletme tarafından 10.11.2026'da onaylandı: kayıtlar doğrulanmış başlar.
+ *   Panelde doğrulama kaldırılan kayıt ön yüzden gizlenir. Logolar ayrıca kullanım hakkı onayı ister.
  * - Tekrar çalıştırılabilir: mevcut kayıtlar ve panelde yapılan değişiklikler korunur.
  */
 class CorporateContentSeeder extends Seeder
@@ -58,10 +58,10 @@ class CorporateContentSeeder extends Seeder
             [$name, $flag] = is_array($row) ? $row : [$row, null];
 
             $model::query()->firstOrCreate(['name' => $name], [
-                'is_verified' => false,
+                'is_verified' => true,
                 'is_active' => true,
                 'sort_order' => $i + 1,
-                'internal_note' => trim($baseNote.($flag ? " Belgede işaretli: [{$flag}]." : '')),
+                'internal_note' => trim($baseNote.($flag ? " Belgede işaretli: [{$flag}]." : '').' İşletme tarafından 10.11.2026 tarihinde onaylandı.'),
             ]);
         }
     }
@@ -148,7 +148,7 @@ HTML,
         $defaults = [
             // Belge: "Mevcut sitenin 2005 kuruluş yılı beyanı" — doğrulama gerektirir.
             'founding_year' => '2005',
-            'founding_year_verified' => '0',
+            'founding_year_verified' => '1', // işletme onayı: 10.11.2026
         ];
 
         Setting::put(array_diff_key($defaults, $stored->all()));
