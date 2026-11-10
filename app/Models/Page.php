@@ -19,6 +19,9 @@ class Page extends Model
         self::TEMPLATE_FLEET => 'Filo kuruluşları listesi',
     ];
 
+    /** Yasal sayfalar (footer Bilgilendirme sırası). Yalnızca aktif olanlar yayınlanır. */
+    public const LEGAL_SLUGS = ['kvkk-aydinlatma-metni', 'gizlilik-politikasi', 'cerez-politikasi'];
+
     /** Kurumsal yan menüde ve sayfa kenar çubuğunda gösterilen sayfalar. */
     public const CORPORATE_SLUGS = ['hakkimizda', 'misyonumuz', 'vizyonumuz'];
 

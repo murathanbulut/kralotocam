@@ -962,3 +962,9 @@ body.mr_menu_active { overflow: hidden; }
     .kral-accordion .wptb-item-title { font-size: 17px; }
     .kral-accordion .wptb-item-title span { padding-right: 48px; }
 }
+
+/* Footer alt şerit: Bilgilendirme bağlantıları (telif satırının altında, mevcut yerleşim korunur) */
+.kral-legal-links ul { display: flex; flex-wrap: wrap; gap: 6px 18px; list-style: none; margin: 8px 0 0; padding: 0; }
+.kral-legal-links a { font-size: 13px; color: #a8a8a8; transition: color .3s ease; }
+.kral-legal-links a:hover,
+.kral-legal-links a:focus-visible { color: var(--kral-accent); }

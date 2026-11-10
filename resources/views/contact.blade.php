@@ -102,6 +102,9 @@
                                     <div class="form-check">
                                         <input class="form-check-input @error('kvkk') is-invalid @enderror" type="checkbox" value="1" id="kvkk" name="kvkk" @checked(old('kvkk')) required>
                                         <label class="form-check-label" for="kvkk">
+                                            @if ($kvkk = legal_pages()->get('kvkk-aydinlatma-metni'))
+                                                <a href="{{ $kvkk->url() }}" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>'ni okudum;
+                                            @endif
                                             Paylaştığım kişisel verilerin, iletişim talebime yanıt verilmesi amacıyla işlenmesini kabul ediyorum. *
                                         </label>
                                         @error('kvkk')<div class="invalid-feedback">{{ $message }}</div>@enderror

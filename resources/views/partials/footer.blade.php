@@ -65,6 +65,15 @@
             <div class="footer-bottom-inner">
                 <div class="copyright">
                     <p>© {{ now()->year }} {{ $siteName }}. Tüm hakları saklıdır.</p>
+                    {{-- Bilgilendirme: yasal sayfalar yalnızca panelde onaylanıp "Aktif" yapıldığında listelenir --}}
+                    <nav class="kral-legal-links" aria-label="Bilgilendirme">
+                        <ul>
+                            @foreach (legal_pages() as $legal)
+                                <li><a href="{{ $legal->url() }}">{{ $legal->title }}</a></li>
+                            @endforeach
+                            <li><a href="{{ site_url('sikca-sorulan-sorular') }}">Sıkça Sorulan Sorular</a></li>
+                        </ul>
+                    </nav>
                 </div>
                 <div class="kral-footer-bottom-right">
                     @include('partials.social')

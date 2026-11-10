@@ -137,3 +137,19 @@ if (! function_exists('experience_years')) {
         return $year ? (int) date('Y') - $year : null;
     }
 }
+
+if (! function_exists('legal_pages')) {
+    /**
+     * Yayındaki yasal sayfalar (KVKK, gizlilik, çerez) — footer "Bilgilendirme" bağlantıları ve form onay metni için.
+     * Pasif (onay bekleyen) sayfalar dönmez. İstek başına bir kez sorgulanır.
+     *
+     * @return \Illuminate\Support\Collection<string, \App\Models\Page>
+     */
+    function legal_pages(): \Illuminate\Support\Collection
+    {
+        return once(fn () => \App\Models\Page::query()->active()
+            ->whereIn('slug', \App\Models\Page::LEGAL_SLUGS)->get()
+            ->sortBy(fn ($page) => array_search($page->slug, \App\Models\Page::LEGAL_SLUGS, true))
+            ->keyBy('slug'));
+    }
+}

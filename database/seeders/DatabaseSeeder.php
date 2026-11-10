@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
             SiteContentSeeder::class,
             CorporateContentSeeder::class,
             FaqSeeder::class,
+            LegalPagesSeeder::class,
         ]);
 
         $this->seedAdmin();
