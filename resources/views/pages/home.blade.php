@@ -80,7 +80,7 @@
                 ] as [$icon, $title, $text])
                     <div class="col-sm-6 col-xl-3">
                         <div class="kral-feature wow fadeInUp" style="--delay: {{ $loop->index * 100 }}ms">
-                            <span class="kral-feature__icon"><i class="bi {{ $icon }}" aria-hidden="true"></i></span>
+                            <span class="kral-feature__icon"><img src="{{ media_url(setting('favicon'), 'images/theme/favicon.png') }}" alt="" width="56" height="56" loading="lazy"></span>
                             <h3 class="kral-feature__title">{{ $title }}</h3>
                             <p class="kral-feature__text">{{ $text }}</p>
                         </div>
