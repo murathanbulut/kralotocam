@@ -1,16 +1,13 @@
 {{--
-    Galeri vitrini: büyük yatay görsel kartları içeren Swiper carousel.
+    Galeri vitrini: yalnızca görsellerden oluşan, kendiliğinden kayan yatay Swiper slaytı.
+    - Görsellerin üzerinde yazı yoktur; açıklama için yalnızca ALT metni kullanılır (erişilebilirlik).
     - Görseller yalnızca yönetim panelindeki aktif galeri kayıtlarıdır (GalleryImage).
     - Karta tıklayınca fslightbox açılır; $group aynı lightbox grubunu belirler.
     - JS: resources/js/features/gallery-showcase.js (JS çalışmazsa kartlar yatay kaydırılabilir şerit olarak kalır).
-    Kart dili: referans temanın portföy kartı (wptb-item--image / wptb-item--holder / wptb-item--meta / wptb-item--link).
 --}}
-@props(['images', 'group' => 'galeri', 'showAlbum' => false, 'label' => 'Galeri görselleri'])
+@props(['images', 'group' => 'galeri', 'label' => 'Galeri görselleri'])
 <div class="kral-showcase" data-gallery-showcase>
     <div class="kral-showcase__bar">
-        <p class="kral-showcase__count">
-            <span>{{ str_pad((string) $images->count(), 2, '0', STR_PAD_LEFT) }}</span> uygulama
-        </p>
         <div class="kral-showcase__nav">
             <button type="button" class="kral-showcase__arrow" data-showcase-prev aria-label="Önceki görseller"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
             <button type="button" class="kral-showcase__arrow" data-showcase-next aria-label="Sonraki görseller"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
@@ -26,17 +23,6 @@
                             <img src="{{ media_url($image->image) }}" alt="{{ $image->alt() }}" loading="lazy" width="1600" height="1000" draggable="false">
                             <span class="wptb-item--link" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
                         </a>
-                        <figcaption class="wptb-item--holder">
-                            <div class="wptb-item--meta">
-                                @if ($showAlbum && $image->album)
-                                    <span class="kral-showcase__album">{{ $image->album->title }}</span>
-                                @endif
-                                <h3 class="kral-showcase__title">{{ $image->title }}</h3>
-                                @if ($image->description)
-                                    <p class="kral-showcase__desc">{{ $image->description }}</p>
-                                @endif
-                            </div>
-                        </figcaption>
                     </figure>
                 </div>
             @endforeach

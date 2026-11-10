@@ -7,11 +7,12 @@
  *  - spaceBetween 16 / 24 (768px+)
  *  - Navigation: altın oklar; Pagination: 'progressbar'; Keyboard: ok tuşları; A11y: Türkçe metinler
  *  - grabCursor, watchOverflow (kaydırılacak görsel yoksa oklar gizlenir), centerInsufficientSlides
+ *  - Autoplay: 3 sn'de bir kendiliğinden akar, fare üstündeyken durur; sonda başa döner (rewind)
  *  - loop kapalı: fslightbox'ın kopya slaytları ayrı görsel sanmaması için
  * Karta tıklama lightbox'ı açar; sürükleme sonrası tıklama Swiper tarafından engellenir (preventClicks).
  */
 import Swiper from 'swiper';
-import { A11y, Keyboard, Navigation, Pagination } from 'swiper/modules';
+import { A11y, Autoplay, Keyboard, Navigation, Pagination } from 'swiper/modules';
 import '../../css/features/gallery-showcase.css';
 
 export default function initGalleryShowcase() {
@@ -22,13 +23,15 @@ export default function initGalleryShowcase() {
         if (!el || el.swiper) return;
 
         new Swiper(el, {
-            modules: [A11y, Keyboard, Navigation, Pagination],
+            modules: [A11y, Autoplay, Keyboard, Navigation, Pagination],
             slidesPerView: 'auto',
             spaceBetween: 16,
             speed: reducedMotion ? 0 : 600,
             grabCursor: true,
             watchOverflow: true,
             centerInsufficientSlides: true,
+            rewind: true,
+            autoplay: reducedMotion ? false : { delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true },
             keyboard: { enabled: true, onlyInViewport: true },
             navigation: {
                 prevEl: root.querySelector('[data-showcase-prev]'),

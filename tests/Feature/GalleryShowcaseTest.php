@@ -42,9 +42,10 @@ class GalleryShowcaseTest extends TestCase
             $this->assertStringContainsString('alt="'.e($image->alt()).'"', $html);
         }
 
-        // Tek lightbox grubu, albüm adları kartlarda
+        // Tek lightbox grubu; görsellerin üstünde yazı yok
         $this->assertStringContainsString('data-fslightbox="galeri"', $html);
-        $this->assertStringContainsString('kral-showcase__album', $html);
+        $this->assertStringNotContainsString('kral-showcase__album', $html);
+        $this->assertStringNotContainsString('kral-filter', $html); // galeri sayfasında yazı ve filtre yok
     }
 
     public function test_inactive_images_and_albums_are_not_shown(): void

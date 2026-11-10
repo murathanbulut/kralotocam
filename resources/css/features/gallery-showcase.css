@@ -4,16 +4,14 @@
  */
 .kral-showcase { position: relative; }
 
-/* Üst şerit: uygulama sayısı + oklar */
+/* Üst şerit: yalnızca oklar (yazı yok) */
 .kral-showcase__bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 16px;
     margin-bottom: 22px;
 }
-.kral-showcase__count { margin: 0; font-size: 14px; letter-spacing: 1.5px; text-transform: uppercase; color: #a9a9a9; }
-.kral-showcase__count span { font-family: var(--font-family-two); font-size: 30px; color: var(--kral-accent); letter-spacing: 0; margin-right: 6px; vertical-align: -3px; }
 .kral-showcase__nav { display: flex; gap: 10px; }
 .kral-showcase__arrow {
     width: 52px;
@@ -80,40 +78,6 @@
 .kral-showcase__card:hover .wptb-item--link,
 .kral-showcase__card:focus-within .wptb-item--link { opacity: 1; transform: none; }
 
-/* Başlık her zaman görünür; görselin alt kısmında koyu gradyan */
-.kral-showcase__card .wptb-item--holder {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 80px 26px 22px;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .7) 50%, rgba(0, 0, 0, .9) 100%);
-    pointer-events: none; /* tıklama alttaki lightbox bağlantısına gider */
-    box-shadow: inset 0 -3px 0 transparent;
-    transition: box-shadow .4s ease;
-}
-.kral-showcase__card:hover .wptb-item--holder,
-.kral-showcase__card:focus-within .wptb-item--holder { box-shadow: inset 0 -3px 0 var(--kral-accent); }
-.kral-showcase__album {
-    display: inline-block;
-    margin-bottom: 8px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--kral-accent);
-}
-.kral-showcase__title { margin: 0; font-size: 22px; line-height: 1.3; color: #fff; }
-.kral-showcase__desc {
-    margin: 8px 0 0;
-    font-size: 14px;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, .82);
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
 
 /* İlerleme çubuğu (Swiper pagination: progressbar) */
 .kral-showcase__progress.swiper-pagination-progressbar {
@@ -133,12 +97,10 @@
 .kral-showcase:not(.is-ready) .kral-showcase__nav { visibility: hidden; }
 
 @media (max-width: 767.98px) {
-    /* Dar ekranda başlık alanı görselin çoğunu kaplamasın diye kart daha yüksek */
+    /* Dar ekranda görsel daha yüksek: telefonda fotoğraf daha büyük görünür */
     .kral-showcase__card .wptb-item--image { aspect-ratio: 4 / 3; }
     .kral-showcase__bar { margin-bottom: 16px; }
     .kral-showcase__arrow { width: 42px; height: 42px; font-size: 15px; }
-    .kral-showcase__card .wptb-item--holder { padding: 60px 18px 16px; }
-    .kral-showcase__title { font-size: 18px; }
     /* Dokunmatikte hover yok: büyütme simgesi görünür */
     .kral-showcase__card .wptb-item--link { opacity: 1; transform: none; width: 40px; height: 40px; font-size: 15px; top: 14px; right: 14px; }
 }
