@@ -37,3 +37,6 @@ Thumbs.db
 /docs/diff-screenshots
 /docs/light-screenshots
 /docs/revision-baseline-screenshots
+
+# Claude Code yerel ayarları - Git dışı
+/.claude
