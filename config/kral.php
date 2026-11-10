@@ -28,5 +28,10 @@ return [
 
         // E. İsteğe bağlı açık tema (varsayılan görünüm her zaman koyu temadır)
         'light_theme' => (bool) env('KRAL_FX_LIGHT_THEME', true),
+
+        // E2. Tema değiştirme düğmesinin görünürlüğü. Kapalıyken (varsayılan) düğme gösterilmez ve
+        // daha önce kaydedilmiş açık tema tercihi uygulanmaz; site her zaman koyu temayla açılır.
+        // Açık tema altyapısı (CSS/JS/localStorage) korunur; true yapılınca düğme ve tercih geri gelir.
+        'theme_toggle' => (bool) env('KRAL_FX_THEME_TOGGLE', false),
     ],
 ];

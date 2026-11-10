@@ -47,7 +47,7 @@
     <link rel="apple-touch-icon" href="{{ media_url(setting('favicon'), 'images/theme/favicon.png') }}">
     <meta name="theme-color" content="#151515">
 
-    @if (feature('light_theme'))
+    @if (feature('light_theme') && feature('theme_toggle'))
         {{-- Açık tema yalnızca ziyaretçi seçtiyse uygulanır; sistem teması dikkate alınmaz. Varsayılan: koyu. --}}
         <script>try { if (localStorage.getItem('kral-theme') === 'light') { document.documentElement.setAttribute('data-theme', 'light'); } } catch (e) {}</script>
     @endif

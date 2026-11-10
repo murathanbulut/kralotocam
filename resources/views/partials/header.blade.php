@@ -14,7 +14,7 @@
                 <ul class="info-list d-flex align-items-center m-0 p-0">
                     <li><a href="{{ phone_href(setting('phone_landline')) }}"><span class="icon"><i class="bi bi-telephone" aria-hidden="true"></i></span>{{ setting('phone_landline') }}</a></li>
                     <li><a href="{{ whatsapp_url() }}" target="_blank" rel="noopener"><span class="icon"><i class="bi bi-whatsapp" aria-hidden="true"></i></span>{{ setting('phone_gsm') }}</a></li>
-                    @if (feature('light_theme'))
+                    @if (feature('light_theme') && feature('theme_toggle'))
                         {{-- Üst bantta: ana menü satırının yerleşimini değiştirmez --}}
                         <li class="kral-theme-toggle-item">@include('partials.theme-toggle')</li>
                     @endif
@@ -67,7 +67,7 @@
     <nav class="mr_navmenu" aria-label="Mobil ana menü">
         @include('partials.menu', ['menu' => $menu, 'mobile' => true])
     </nav>
-    @if (feature('light_theme'))
+    @if (feature('light_theme') && feature('theme_toggle'))
         {{-- Mobilde üst bant gizli olduğu için tema seçimi mobil menüde --}}
         <div class="kral-theme-toggle-mobile">
             <span>Tema</span>

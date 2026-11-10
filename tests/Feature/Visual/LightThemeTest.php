@@ -24,7 +24,7 @@ class LightThemeTest extends TestCase
 
     public function test_light_theme_is_optional_and_never_the_default(): void
     {
-        config(['kral.features.light_theme' => true]);
+        config(['kral.features.light_theme' => true, 'kral.features.theme_toggle' => true]);
 
         $html = $this->get('/')->assertOk()->getContent();
         $this->assertStringContainsString('data-theme-toggle', $html);
@@ -40,5 +40,18 @@ class LightThemeTest extends TestCase
         $this->assertStringNotContainsString('data-theme-toggle', $html);
         $this->assertStringNotContainsString('kral-theme', $html);
         $this->assertStringNotContainsString('light-theme', $html);
+    }
+
+    public function test_hidden_toggle_keeps_infrastructure_but_always_starts_dark(): void
+    {
+        config(['kral.features.light_theme' => true, 'kral.features.theme_toggle' => false]);
+
+        $html = $this->get('/')->assertOk()->getContent();
+
+        // Düğme görünmez; kayıtlı açık tema tercihi uygulanmaz (koyu başlangıç korunur)
+        $this->assertStringNotContainsString('data-theme-toggle', $html);
+        $this->assertStringNotContainsString("localStorage.getItem('kral-theme')", $html);
+        // Açık tema stil dosyası yüklenmeye devam eder (altyapı korunur, ileride tekrar açılabilir)
+        $this->assertStringContainsString('light-theme', $html);
     }
 }
