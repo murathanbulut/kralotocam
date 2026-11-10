@@ -69,7 +69,7 @@
                 <div class="kral-footer-bottom-right">
                     @include('partials.social')
                     <p class="kral-credit">
-                        <a href="https://alphacreative.com.tr" target="_blank" rel="noopener">Alpha Creative</a> tarafından yapılmıştır
+                        <a href="https://alphacreative.com.tr" target="_blank" rel="noopener">Alpha Creative</a>
                     </p>
                 </div>
             </div>
