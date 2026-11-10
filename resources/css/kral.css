@@ -276,11 +276,9 @@ body.mr_menu_active { overflow: hidden; }
     place-items: center;
     width: 56px; height: 56px;
     border-radius: 50%;
-    background: rgba(var(--color-one-rgb), .15);
-    color: var(--color-one);
-    font-size: 24px;
     margin-bottom: 18px;
 }
+.kral-feature__icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .kral-feature__title { font-size: 19px; margin-bottom: 10px; }
 .kral-feature__text { font-size: 15px; line-height: 1.65; margin: 0; color: #c4c4c4; }
 
@@ -766,14 +764,14 @@ body.mr_menu_active { overflow: hidden; }
     .wptb-about-two .wptb-item--button.round-button { bottom: -30px; right: -30px; }
 }
 
-/* Bölüm başlığı dekoru: açık renk büyük başlık, arkasında kırmızı bant */
+/* Bölüm başlığı dekoru: düz beyaz büyük harfli başlık (arkada bant/çizgi yok) */
 .kral-deco { position: relative; margin: 0 0 22px; line-height: .9; max-width: 100%; container-type: inline-size; }
 .kral-deco--center { text-align: center; }
 .kral-deco > span {
     position: relative;
     isolation: isolate;
     display: inline-block;
-    padding: 0 .3em;
+    padding: 0;
     font-family: var(--font-family-base);
     font-weight: 700;
     /* 30px; yalnızca alana sığmayan (dar ekran) durumlarda küçülür */
@@ -782,18 +780,8 @@ body.mr_menu_active { overflow: hidden; }
     letter-spacing: .01em;
     text-transform: uppercase;
     white-space: nowrap;
-    color: var(--color-three); /* açık renk yazı, kırmızı bant arkada */
+    color: #fff;
     user-select: none;
-}
-.kral-deco > span::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 40%;
-    height: 34%;
-    background: var(--color-one);
-    z-index: -1;
 }
 /* Dekor varken küçük üst başlık tekrar etmesin */
 .kral-deco + .wptb-item--subtitle { display: none !important; }
@@ -854,21 +842,6 @@ body.mr_menu_active { overflow: hidden; }
     --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23151515' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
 }
 
-/* Bölüm başlığı dekoru: harfler açık renk, yalnızca altın bandın üzerindeki kısım koyu
-   (bant: üstten %40, yükseklik %34 -> metin rengi aynı aralıkta koyulaşır).
-   Renk geçişi iç span'e uygulanır; böylece bant (dış span::before) harflerin arkasında kalır. */
-.kral-deco .kral-deco__text {
-    display: inline-block;
-    line-height: inherit;
-    background-image: linear-gradient(180deg,
-        var(--color-three) 0 40%,
-        var(--kral-accent-contrast) 40% 74%,
-        var(--color-three) 74% 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 /* Slider kontrolleri: aktif nokta halkası ve iç noktası altın */
 .kral-hero .wptb-swiper-dots.style2 .swiper-pagination-bullet.swiper-pagination-bullet-active { border-color: var(--kral-accent); }
 .kral-hero .wptb-swiper-dots.style2 .swiper-pagination-bullet.swiper-pagination-bullet-active:before { background-color: var(--kral-accent); }
@@ -924,3 +897,14 @@ body.mr_menu_active { overflow: hidden; }
 .kral-cta__btn--phone:hover small { color: rgba(21, 21, 21, .7); }
 .kral-cta__btn--phone:hover .kral-cta__btn-icon { background: var(--kral-accent-contrast); color: var(--kral-accent); }
 .kral-cta__btn--phone:hover .kral-cta__btn-arrow { color: var(--kral-accent-contrast); }
+
+/* Avantaj kartları: ikon yerine favicon (marka amblemi) */
+.kral-feature__icon { background: none; overflow: hidden; }
+.kral-feature__icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
+
+/* Header ana menü: hareketli alt çizgi tema sarısında */
+.header .mainnav ul.main-menu > li > a::before,
+.header .mainnav ul.main-menu > li.current > a::before,
+.header .mainnav ul.main-menu > li.active > a::before,
+.header .mainnav ul.main-menu > li:hover > a::before,
+.header.color-fixed .mainnav ul.main-menu > li.active > a::before { background-color: var(--kral-accent); }
