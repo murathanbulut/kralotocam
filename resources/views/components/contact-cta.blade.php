@@ -12,12 +12,14 @@
                 <div class="col-lg-5">
                     <div class="kral-cta__actions">
                         <a class="kral-cta__btn kral-cta__btn--whatsapp" href="{{ whatsapp_url() }}" target="_blank" rel="noopener">
-                            <i class="bi bi-whatsapp" aria-hidden="true"></i>
-                            <span><small>WhatsApp ile yazın</small>{{ setting('phone_gsm') }}</span>
+                            <span class="kral-cta__btn-icon"><i class="bi bi-whatsapp" aria-hidden="true"></i></span>
+                            <span class="kral-cta__btn-text"><small>WhatsApp ile yazın</small>{{ setting('phone_gsm') }}</span>
+                            <i class="bi bi-arrow-up-right kral-cta__btn-arrow" aria-hidden="true"></i>
                         </a>
-                        <a class="kral-cta__btn" href="{{ phone_href(setting('phone_landline')) }}">
-                            <i class="bi bi-telephone" aria-hidden="true"></i>
-                            <span><small>Sabit hat</small>{{ setting('phone_landline') }}</span>
+                        <a class="kral-cta__btn kral-cta__btn--phone" href="{{ phone_href(setting('phone_landline')) }}">
+                            <span class="kral-cta__btn-icon"><i class="bi bi-telephone" aria-hidden="true"></i></span>
+                            <span class="kral-cta__btn-text"><small>Telefon</small>{{ setting('phone_landline') }}</span>
+                            <i class="bi bi-arrow-up-right kral-cta__btn-arrow" aria-hidden="true"></i>
                         </a>
                         <a class="kral-cta__link" href="{{ site_url('iletisim') }}#iletisim-formu">İletişim formunu doldurun <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
                     </div>
